@@ -806,35 +806,36 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(checkStatus, 30000);
     </script>
 
-    <!-- DEFINITIVNÍ OPRAVA: PROPOJENÍ TLAČÍTKA ZOBRAZIT RARITY S FILTRY -->
+    <!-- ROZBALENÍ FILTRŮ RARIT VÝHRADNĚ PŘES TLAČÍTKO "ZOBRAZIT RARITY" -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const filterMenu = document.getElementById("hidden-filter-menu");
     if (!filterMenu) return;
 
-    // Vynucené skrytí filtrů hned při načtení stránky, aby nebyly vidět bez kliknutí
+    // 1. Schováme filtry rarit hned při načtení stránky
     filterMenu.style.maxHeight = "0";
     filterMenu.style.opacity = "0";
     filterMenu.style.overflow = "hidden";
     filterMenu.style.transition = "max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease";
 
-    // Vyhledáme tlačítko nebo odkaz, který obsahuje text "Zobrazit rarity" nebo odkazuje na #itemy
-    let rarityBtn = document.querySelector('a[href="#itemy"]');
+    // 2. Najdeme na stránce prvek, který obsahuje přesný text "Zobrazit rarity"
+    let rarityTriggerBtn = null;
+    const allPageElements = document.querySelectorAll("a, button, div, span");
     
-    if (!rarityBtn) {
-        const allElements = document.querySelectorAll("a, button, div");
-        for (let el of allElements) {
-            if (el.textContent.includes("Zobrazit rarity")) {
-                rarityBtn = el;
-                break;
-            }
+    for (let el of allPageElements) {
+        if (el.textContent.trim().includes("Zobrazit rarity")) {
+            rarityTriggerBtn = el;
+            break;
         }
     }
 
-    // Navázání plynulého rozbalení (Slide Down) na nalezené tlačítko
-    if (rarityBtn) {
-        rarityBtn.addEventListener("click", function (e) {
-            e.preventDefault(); // Zabrání trhavému skoku stránky
+    // 3. Propojíme akci pouze s tímto tlačítkem na stránce (odkaz v horním menu "Itemy" ignorujeme)
+    if (rarityTriggerBtn) {
+        rarityTriggerBtn.style.cursor = "pointer"; // Zajistí, že se nad ním ukáže ruka
+        
+        rarityTriggerBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
 
             // Pokud je zavřené, plynule ho rozbalíme a sjedeme k němu
             if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0") {
