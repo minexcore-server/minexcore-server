@@ -603,7 +603,32 @@
             </div>
         </section>
 
-        <!-- SEKCE MAPA --> <section id="mapa"> <div class="sec-desc">Interaktivní přehled světa</div> <div class="sec-title">🗺️ Živá 3D Dynmapa</div> <div class="map-holder"> <iframe src="https://minexcore.dynmapa.cz/"></iframe> </div> </section>
+        <!-- SEKCE MAPA -->
+<section id="mapa" style="width: 100%; max-width: 1300px; margin: 0 auto; padding: 60px 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-sizing: border-box;">
+    
+    <!-- Profesionální minimalistické záhlaví -->
+    <div style="border-left: 4px solid #0066cc; padding-left: 16px; margin-bottom: 32px; text-align: left;">
+        <div class="sec-desc" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #666666; margin-bottom: 4px;">Interaktivní přehled světa</div>
+        <div class="sec-title" style="font-size: 2rem; font-weight: 700; color: #111111; letter-spacing: -0.5px;">🗺️ Živá 3D Dynmapa</div>
+    </div>
+
+    <!-- Čisté korporátní okno s poměrem stran 16:9 -->
+    <div class="map-holder" style="
+        width: 100%; 
+        background: #ffffff; 
+        border: 1px solid #e1e4e8; 
+        border-radius: 12px; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02); 
+        overflow: hidden;
+    ">
+        <iframe 
+            src="https://minexcore.dynmapa.cz/" 
+            style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+</section>
 
     </div> <!-- Konec containeru -->
 
