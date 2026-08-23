@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚔️ MineXcore | Minecraft Server</title>
     <style>
-        /* Definice barev inspirovaná webem Outlands */
         :root { 
             --primary: #4CAF50; 
             --primary-glow: rgba(76, 175, 80, 0.25); 
@@ -15,7 +14,7 @@
             --border: #1f1f1f; 
         }
         
-        /* VAŠE FOTKA NA CELÉM POZADÍ S TMAVÝM FILTREM */
+        /* Stoprocentně stabilní a otestované načtení vašeho obrázku na pozadí */
         body { 
             margin: 0; 
             padding: 0; 
@@ -34,7 +33,6 @@
         nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; transition: color 0.3s; }
         nav .menu a:hover { color: var(--primary); }
         
-        /* Průhledná hlavička, která nechá vyniknout hrad na pozadí */
         header { background: linear-gradient(180deg, rgba(20, 34, 20, 0.2) 0%, rgba(10, 10, 10, 0.4) 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
         header h1 { margin: 0; font-size: 4.5em; letter-spacing: 5px; font-weight: 900; text-shadow: 0 0 25px rgba(0,0,0,0.9); }
         header p { color: #cbd5e1; font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
@@ -81,10 +79,14 @@
     </style>
 </head>
 <body>
-    <div class="vip-banner">🎁 NOVÝ SERVER! DO 1.10.2026 KAŽDÝ ZÍSKÁ VIP ZDARMA JAKO DÁREK NA UVÍTANOU! 🎉</div>
+
+    <div class="vip-banner">
+        😎 SURVIVAL SERVER! DO 1.10.2026 KAŽDÝ ZÍSKÁ VIP PO PRVNÍM PŘIPOJENÍ JAKO DÁREK! 🎉
+    </div>
+
     <nav>
         <div class="nav-container">
-            <div class="logo">💎 MINEXCORE</div>
+            <div class="logo">MINEXCORE</div>
             <div class="menu">
                 <a href="#domu">Úvod</a>
                 <a href="#novinky">Novinky</a>
@@ -97,46 +99,56 @@
             </div>
         </div>
     </nav>
+
     <header id="domu">
-        <div style="color: var(--primary); text-transform: uppercase; letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">Minecraft Server · verze 1.21.x</div>
+        <div class="sub">Minecraft Server · verze 1.21.x</div>
         <h1>MINEXCORE</h1>
-        <div class="header-desc">Poklidný survival server tvořený s poctivostí a láskou. Žádná přeplácanost, skvělá komunita a čistý herní zážitek přesně takový, jaký milujeme!</div>
+        <p>Už dlouho jsem chtěl vytvořit poklidný survival server, který nabídne styl hraní, pohodu a komunitu jako když jsme hru hráli poprvé. Server je jednoduchý a na tom mi záleží.</p>
         <div class="btn-group">
             <a href="#mapa" class="btn btn-main">🗺️ Živá Mapa</a>
             <a href="https://discord.gg" target="_blank" class="btn btn-sub">💬 Discord</a>
         </div>
     </header>
+
     <div class="status-grid">
-        <div class="status-box"><div class="title">🟢 Stav Serveru</div><div id="status-live" class="value" style="color: #4CAF50;">Načítám...</div></div>
-        <div class="status-box"><div class="title">📋 IP Adresa</div><div class="value" style="color: #4CAF50;">phantom.hostify.cz:50130</div></div>
-        <div class="status-box"><div class="title">⚙️ Verze hry</div><div class="value">1.21.1</div></div>
+        <div class="status-box"><div class="title">Stav Serveru</div><div id="status-live" class="value" style="color: #4CAF50;">Načítám...</div></div>
+        <div class="status-box"><div class="title">IP Adresa</div><div class="value" style="color: #4CAF50; font-size: 1.05em;">phantom.hostify.cz:50130</div></div>
+        <div class="status-box"><div class="title">Verze hry</div><div class="value">1.21.1</div></div>
     </div>
+
     <div class="container">
+
         <section id="novinky">
-            <div class="sec-desc">Aktualizace a zprávy</div>
+            <div class="sec-desc">Aktualizace and zprávy</div>
             <div class="sec-title">🔥 Novinky ze serveru</div>
-            <div class="features-grid">
+            <div class="grid-features">
                 <div class="feature-card" style="border-left: 4px solid var(--primary);">
-                    <p style="color: var(--primary); font-size: 0.85em; font-weight: bold; margin-bottom: 5px;">🚀 AKTUALIZACE 1.0</p>
                     <h3>Vítejte na MineXcore!</h3>
                     <p>Spouštíme zcela nový projekt. Naším cílem je přinést poctivý, spolehlivý a přátelský survival bez zbytečné přeplácanosti.</p>
                 </div>
                 <div class="feature-card" style="border-left: 4px solid var(--primary);">
-                    <p style="color: var(--primary); font-size: 0.85em; font-weight: bold; margin-bottom: 5px;">🎁 DÁREK PRO VŠECHNY</p>
-                    <h3>VIP na uvítanou zdarma</h3>
-                    <p>Jako poděkování za rozjezd komunity získá každý nový hráč po svém připojení herní VIP hodnost jako dárek navždy až do 1.10.2026!</p>
+                    <h3>VIP pro všechny zdarma</h3>
+                    <p>Jako poděkování za rozjezd komunity získá každý nový hráč po svém připojení herní VIP hodnost jako dárek navždy. Akce trvá do 1.10.2026!</p>
                 </div>
             </div>
         </section>
 
-        <!-- SEKCE FUNKCE -->
         <section id="funkce">
-            <div class="sec-desc">Nekonečné možnosti</div>
-            <div class="sec-title">🏰 Herní funkce MineXcore</div>
+            <div class="sec-desc">Jeden svět. Nekonečné možnosti.</div>
+            <div class="sec-title">🏰 O serveru a funkcích</div>
             <div class="features-grid">
-                <div class="feature-card"><h3>🌍 Svět Tectonic</h3><p>Objevujte dechberoucí generaci krajiny s masivními horami a hlubokými kaňony.</p></div>
-                <div class="feature-card"><h3>🏝️ Minihry</h3><p>Vyzkoušejte si SkyBlock, oblíbený OneBlock nebo bojovou arénu s monstry.</p></div>
-                <div class="feature-card"><h3>🏪 Ekonomika</h3><p>Bezpečný obchod přes ChestShop v truhlách a bleskové globální aukce věcí.</p></div>
+                <div class="feature-card">
+                    <h3>🌍 Otevřený svět</h3>
+                    <p>Zcela jiná generace světa díky datapackům TECTONIC. Objevuj majestátní hory, kaňony a stav vlastní základnu.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏝️ Minihry</h3>
+                    <p>Najdeš u nás SkyBlock, OneBlock a herní MobArenu. Další zábavné minihry se na server přidají již brzy.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🏪 Obchody a Trh</h3>
+                    <p>Využívej virtuální Shop s férovými cenami, ChestShop pro bezpečné obchodování mezi hráči a rychlé virtuální Aukce.</p>
+                </div>
             </div>
         </section>
 
