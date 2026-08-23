@@ -480,17 +480,7 @@
     
     <div style="border-left: 5px solid #ffbd2e; padding-left: 24px; margin-bottom: 45px; text-align: left; margin-top: 40px;">
         <div class="sec-desc" style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #ffbd2e; margin-bottom: 8px;">Statistiky herní aktivity</div>
-        <div class="sec-title" style="
-            font-size: 3.4rem; 
-            font-weight: 900; 
-            color: #ffffff; 
-            letter-spacing: -1.5px; 
-            margin: 0;
-            line-height: 1.05;
-            background: linear-gradient(180deg, #ffffff 40%, #a0aec0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        ">🏆 Žebříček Playtime</div>
+        <div class="sec-title">Playtime</div>
     </div>
 
     <div style="max-width: 900px; margin: 0 auto; padding-bottom: 60px;">
@@ -821,6 +811,42 @@ document.addEventListener("DOMContentLoaded", function () {
         checkStatus();
         setInterval(checkStatus, 30000);
     </script>
+
+    <!-- SKRIPT PRO ROZBALENÍ A PŘÍMÉ SMĚROVÁNÍ NA FILTRY ITEMŮ -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Najde odkaz v menu a kontejner vašeho stávajícího filtru
+    const itemyLink = document.querySelector('a[href="#itemy"]');
+    const filterMenu = document.getElementById("hidden-filter-menu");
+
+    if (itemyLink && filterMenu) {
+        // Inicializace výchozího skrytého stavu vašeho stávajícího divu
+        filterMenu.style.maxHeight = "0";
+        filterMenu.style.opacity = "0";
+        filterMenu.style.overflow = "hidden";
+        filterMenu.style.transition = "max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease";
+
+        itemyLink.addEventListener("click", function (e) {
+            e.preventDefault(); // Zamezí trhavému skoku, nahradíme ho plynulým přesunem
+
+            // Pokud je zavřené, plynule ho rozbalí a sjede přímo k němu
+            if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0") {
+                filterMenu.style.maxHeight = "300px"; // Výška dostatečná pro zobrazení tlačítek
+                filterMenu.style.opacity = "1";
+                
+                // OKAMŽITÉ SMĚROVÁNÍ: Hladký slide down pohledu přímo na otevřené filtry
+                setTimeout(() => {
+                    filterMenu.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 100);
+            } else {
+                // Pokud je otevřené, kliknutím ho schová
+                filterMenu.style.maxHeight = "0";
+                filterMenu.style.opacity = "0";
+            }
+        });
+    }
+});
+</script>
 
 </body>
 </html>
