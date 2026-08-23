@@ -3,74 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MineXcore | Minecraft Server</title>
+    <title>⚔️ MineXcore | Oficiální Minecraft Web</title>
     <style>
-        /* Globální styly inspirované webem Outlands */
+        /* Moderní rozšířený herní vizuál s neonovými prvky */
         :root {
             --primary: #4CAF50;
-            --primary-glow: rgba(76, 175, 80, 0.3);
-            --bg-dark: #0a0a0a;
-            --bg-card: #121212;
-            --bg-nav: #121212;
+            --primary-glow: rgba(76, 175, 80, 0.4);
+            --bg-dark: #070708;
+            --bg-card: rgba(22, 22, 26, 0.85);
+            --bg-nav: rgba(13, 13, 16, 0.95);
             --text-main: #ffffff;
-            --text-muted: #b3b3b3;
-            --border: #1f1f1f;
+            --text-muted: #cbd5e1;
+            --border: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(76, 175, 80, 0.5);
+            --accent-blue: #5865F2;
         }
 
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* VIP Uvítací lišta */
+        .vip-announcement {
+            background: linear-gradient(90deg, #d4af37, #4CAF50);
+            color: #000;
+            font-weight: 800;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+            text-transform: uppercase;
         }
 
         /* Navigační menu */
         nav {
             background-color: var(--bg-nav);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 22px 0;
             border-bottom: 1px solid var(--border);
-            text-align: center;
         }
         nav .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         nav .logo-text {
-            font-weight: bold;
-            font-size: 1.3em;
-            letter-spacing: 2px;
+            font-weight: 900;
+            font-size: 1.5em;
+            letter-spacing: 3px;
             color: var(--text-main);
+            text-shadow: 0 0 10px var(--primary-glow);
         }
         nav .links a {
             color: var(--text-muted);
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
+            margin-left: 30px;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85em;
-            transition: color 0.3s;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
         nav .links a:hover {
             color: var(--primary);
+            text-shadow: 0 0 8px var(--primary-glow);
         }
 
-        /* Hero Sekce (Hlavička) */
+        /* Hero Sekce */
         header {
             position: relative;
-            background: linear-gradient(rgba(10,10,10,0.5), rgba(10,10,10,0.95)), url('pozadi.png') no-repeat center center/cover;
-            padding: 120px 20px;
+            background: linear-gradient(rgba(7, 7, 8, 0.3), rgba(7, 7, 8, 0.98)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            padding: 160px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border);
-            min-height: 350px;
+            min-height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -79,265 +99,223 @@
         .header-sub {
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-bottom: 10px;
+            letter-spacing: 6px;
+            font-weight: 800;
+            font-size: 1em;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
         }
         h1 {
             margin: 0;
-            font-size: 4.5em;
+            font-size: 5.5em;
             color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 5px;
-            font-weight: 900;
-            text-shadow: 0 0 30px var(--primary-glow);
+            letter-spacing: 8px;
+            font-weight: 950;
+            text-shadow: 0 0 40px var(--primary-glow), 0 10px 20px rgba(0,0,0,0.8);
         }
         .header-desc {
             color: var(--text-muted);
-            font-size: 1.2em;
-            max-width: 600px;
-            margin: 20px 0 40px 0;
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 25px 0 45px 0;
+            line-height: 1.6;
         }
         .cta-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
         .btn {
-            padding: 14px 30px;
-            border-radius: 6px;
-            font-weight: bold;
+            padding: 16px 36px;
+            border-radius: 8px;
+            font-weight: 800;
             text-transform: uppercase;
-            font-size: 0.9em;
+            font-size: 0.95em;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
         .btn-primary {
             background-color: var(--primary);
-            color: #000;
+            color: #050505;
             border: none;
-            box-shadow: 0 0 20px var(--primary-glow);
+            box-shadow: 0 0 25px var(--primary-glow);
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px var(--primary);
+            background-color: #5cb860;
         }
         .btn-secondary {
-            background-color: transparent;
+            background-color: rgba(255,255,255,0.03);
             color: var(--text-main);
             border: 1px solid var(--border);
+            backdrop-filter: blur(5px);
         }
         .btn-secondary:hover {
-            background-color: #121212;
-            border-color: var(--text-muted);
+            background-color: rgba(88, 101, 242, 0.2);
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
         }
 
-        /* Statistiky / Status bar */
+        /* Status Bar */
         .status-bar {
-            max-width: 1000px;
-            margin: -40px auto 60px auto;
+            max-width: 1340px;
+            margin: -50px auto 80px auto;
             position: relative;
             z-index: 10;
             background: var(--bg-card);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 12px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            padding: 20px;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            padding: 25px;
+            gap: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
         .status-item {
             text-align: center;
             border-right: 1px solid var(--border);
+            padding: 10px 0;
         }
         .status-item:last-child {
             border-right: none;
         }
         .status-title {
-            color: var(--text-muted);
-            font-size: 0.8em;
+            color: #7137f1;
+            font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
         }
         .status-value {
-            font-size: 1.3em;
-            font-weight: bold;
+            font-size: 1.4em;
+            font-weight: 800;
             color: var(--text-main);
         }
         .status-value.online {
             color: var(--primary);
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
         }
 
-        /* Hlavní kontejnery pro sekce */
+        /* Hlasovací sekce s odkazy */
+        .vote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+        }
+        .vote-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .vote-card:hover {
+            border-color: var(--primary);
+            background: rgba(76, 175, 80, 0.05);
+            transform: translateY(-3px);
+        }
+        .vote-card span {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        /* Hlavní kontejnery */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         section {
-            padding: 80px 0;
+            padding: 100px 0;
             border-bottom: 1px solid var(--border);
         }
         section:last-child {
             border-bottom: none;
         }
         .section-title {
-            font-size: 2.2em;
+            font-size: 2.6em;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
         .section-desc {
-            color: var(--text-muted);
             margin-bottom: 5px;
             text-transform: uppercase;
-            font-size: 0.85em;
-            letter-spacing: 2px;
+            font-size: 0.9em;
+            letter-spacing: 3px;
             color: var(--primary);
+            font-weight: 700;
         }
 
-        /* Grid pro vlastnosti serveru "O serveru" */
+        /* Vylepšené Karty "O serveru" */
         .grid-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 5px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
         .feature-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 35px;
+            border-radius: 12px;
+            padding: 40px;
             text-align: left;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-3px);
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.15);
         }
         .feature-card h3 {
             margin: 0 0 15px 0;
-            font-size: 1.4em;
+            font-size: 1.6em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         .feature-card p {
             color: var(--text-muted);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-size: 1.05em;
         }
 
-        /* Rozbalovací Pravidla (Accordion z Outlands) */
-        .accordion {
-            max-width: 800px;
+        /* Žebříčky */
+        .leaderboard-container {
+            max-width: 1000px;
             margin: 40px auto 0 auto;
-            text-align: left;
-        }
-        .accordion-item {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 6px;
-            margin-bottom: 15px;
+            border-radius: 12px;
             overflow: hidden;
-        }
-        .accordion-header {
-            padding: 22px 30px;
-            font-weight: bold;
-            font-size: 1.1em;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            transition: background 0.3s;
-        }
-        .accordion-header:hover {
-            background-color: #161616;
-        }
-        .accordion-header::after {
-            content: '＋';
-            color: var(--primary);
-            font-size: 1.2em;
-        }
-        /* Logika pro rozbalení bez JavaScriptu přes detaily */
-        details summary {
-            list-style: none;
-        }
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-        .accordion-content {
-            padding: 0 30px 25px 30px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-        .accordion-content ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .accordion-content li {
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-        .accordion-content li::marker {
-            color: var(--primary);
-        }
-
-        /* Mapa */
-        .map-wrapper {
-            width: 100%;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            background: #000;
-            margin-top: 40px;
-        }
-        iframe {
-            width: 100%;
-            height: 650px;
-            border: none;
-            display: block;
-        }
-
-        /* Patička webu */
-        footer {
-            background-color: #050505;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 0.9em;
-        }
-        footer .footer-logo {
-            font-weight: bold;
-            font-size: 1.4em;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Navigace -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo-text">MINEXCORE</div>
-            <div class="links">
-                <a href="#domu">Novinky</a>
-                <a href="#o-serveru">O serveru</a>
-                <a href="#pravidla">Pravidla</a>
-                <a href="#mapa">Mapa</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero záhlaví -->
-    <header id="domu">
-        <div class="header-sub">Minecraft Server</div>
-        <h1>MINEXCORE</h1>
-        <div class="header-desc">Objevuj svět, obchoduj mezi hráči, postav si svojí vysněnou bázi a bojuj s monstry.</div>
