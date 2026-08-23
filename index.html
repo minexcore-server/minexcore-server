@@ -3,320 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚔️ MineXcore | Oficiální Minecraft Web</title>
+    <title>MineXcore | Oficiální Web</title>
     <style>
-        /* Moderní rozšířený herní vizuál s neonovými prvky */
-        :root {
-            --primary: #4CAF50;
-            --primary-glow: rgba(76, 175, 80, 0.4);
-            --bg-dark: #070708;
-            --bg-card: rgba(22, 22, 26, 0.85);
-            --bg-nav: rgba(13, 13, 16, 0.95);
-            --text-main: #ffffff;
-            --text-muted: #cbd5e1;
-            --border: rgba(255, 255, 255, 0.06);
-            --border-hover: rgba(76, 175, 80, 0.5);
-            --accent-blue: #5865F2;
-        }
-
+        /* Původní tmavý herní design, který skvěle fungoval */
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        /* VIP Uvítací lišta */
-        .vip-announcement {
-            background: linear-gradient(90deg, #d4af37, #4CAF50);
-            color: #000;
-            font-weight: 800;
-            padding: 12px 20px;
+            background-color: #141414;
+            color: #f5f5f5;
             text-align: center;
-            font-size: 1.05em;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-            text-transform: uppercase;
         }
-
-        /* Navigační menu */
-        nav {
-            background-color: var(--bg-nav);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 22px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        nav .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-        }
-        nav .logo-text {
-            font-weight: 900;
-            font-size: 1.5em;
-            letter-spacing: 3px;
-            color: var(--text-main);
-            text-shadow: 0 0 10px var(--primary-glow);
-        }
-        nav .links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        nav .links a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 8px var(--primary-glow);
-        }
-
-        /* OPRAVENÁ Hero Sekce - Používá čistý CSS přechod bez externích obrázků */
         header {
-            position: relative;
-            background: linear-gradient(180deg, rgba(22, 35, 23, 0.4) 0%, rgba(7, 7, 8, 0.98) 100%);
-            padding: 160px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            min-height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .header-sub {
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            font-weight: 800;
-            font-size: 1em;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+            background-color: #1f1f1f;
+            padding: 40px 20px;
+            border-bottom: 4px solid #4CAF50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         h1 {
             margin: 0;
-            font-size: 5.5em;
-            color: var(--text-main);
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            font-weight: 950;
-            text-shadow: 0 0 40px var(--primary-glow), 0 10px 20px rgba(0,0,0,0.8);
-        }
-        .header-desc {
-            color: var(--text-muted);
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 25px 0 45px 0;
-            line-height: 1.6;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-        }
-        .btn {
-            padding: 16px 36px;
-            border-radius: 8px;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.95em;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .btn-primary {
-            background-color: var(--primary);
-            color: #050505;
-            border: none;
-            box-shadow: 0 0 25px var(--primary-glow);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 35px var(--primary);
-            background-color: #5cb860;
-        }
-        .btn-secondary {
-            background-color: rgba(255,255,255,0.03);
-            color: var(--text-main);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(5px);
-        }
-        .btn-secondary:hover {
-            background-color: rgba(88, 101, 242, 0.2);
-            border-color: var(--accent-blue);
-            transform: translateY(-3px);
-        }
-
-        /* Status Bar */
-        .status-bar {
-            max-width: 1340px;
-            margin: -50px auto 80px auto;
-            position: relative;
-            z-index: 10;
-            background: var(--bg-card);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            padding: 25px;
-            gap: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
-        .status-item {
-            text-align: center;
-            border-right: 1px solid var(--border);
-            padding: 10px 0;
-        }
-        .status-item:last-child {
-            border-right: none;
-        }
-        .status-title {
-            color: #7137f1;
-            font-size: 0.85em;
+            font-size: 2.8em;
+            color: #4CAF50;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 8px;
-            font-weight: 700;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 6px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        .status-value {
-            font-size: 1.4em;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-        .status-value.online {
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
-        }
-
-        /* Hlasovací sekce s odkazy */
-        .vote-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 40px auto 0 auto;
-        }
-        .vote-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 25px;
-            text-decoration: none;
-            color: white;
+        .ip-box {
+            background: #2a2a2a;
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 6px;
             font-weight: bold;
             font-size: 1.1em;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+            border: 1px solid #444;
+            color: #85e388;
         }
-        .vote-card:hover {
-            border-color: var(--primary);
-            background: rgba(76, 175, 80, 0.05);
-            transform: translateY(-3px);
-        }
-        .vote-card span {
-            font-size: 0.85em;
-            color: var(--text-muted);
-            font-weight: normal;
-        }
-
-        /* Hlavní kontejnery */
         .container {
-            max-width: 1400px;
+            padding: 40px 20px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 30px;
         }
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border);
+        h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
         }
-        section:last-child {
-            border-bottom: none;
+        p {
+            color: #aaa;
+            margin-bottom: 30px;
         }
-        .section-title {
-            font-size: 2.6em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-            font-weight: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        .section-desc {
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 3px;
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        /* Vylepšené Karty "O serveru" */
-        .grid-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .feature-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
+        /* Prověřený funkční kontejner pro živou Dynmapu */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            border: 3px solid #4CAF50;
             border-radius: 12px;
-            padding: 40px;
-            text-align: left;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        .feature-card:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(76, 175, 80, 0.15);
-        }
-        .feature-card h3 {
-            margin: 0 0 15px 0;
-            font-size: 1.6em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.7;
-            font-size: 1.05em;
-        }
-
-        /* Žebříčky */
-        .leaderboard-container {
-            max-width: 1000px;
-            margin: 40px auto 0 auto;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            background: #000;
         }
+        iframe {
+            width: 100%;
+            height: 750px;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MineXcore</h1>
+        <div class="ip-box">IP adresa: phantom.hostify.cz:50130</div>
+    </header>
+
+    <div class="container">
+        <h2>Živá 3D Dynmapa světa</h2>
+        <p>Sledujte stavby, prozkoumané území a polohu hráčů v reálném čase přímo z našeho webu.</p>
+        
+        <div class="map-wrapper">
+            <!-- Vaše stoprocentně funkční adresa mapy -->
+            <iframe src="https://dynmapa.cz"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
