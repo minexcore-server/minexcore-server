@@ -245,26 +245,70 @@
         </section>
 
         <!-- ZVĚTŠENÝ NADPIS A CHYTRÉ SCHOVÁVÁNÍ CELÉHO KATALOGU -->
-            <div style="text-align: center; margin: 40px 0 30px 0;">
-                <h2 style="color: #4CAF50; text-transform: uppercase; font-size: 2.8em; letter-spacing: 3px; font-weight: 950; margin-bottom: 25px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">✨ VZÁCNÉ ITEMY SERVERU ✨</h2>
-                
-                <!-- HLAVNÍ VYPÍNAČ PRO CELÝ OBSAH KATALOGU -->
-                <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFullCatalog()">👁️ Zobrazit rarity</button>
-                
-                <!-- SKRYTÉ MENU S FILTRY S PLYNULÝM VYSUNUTÍM -->
-                <div id="hidden-filter-menu" class="animated-filter-drawer">
-                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; padding: 5px;">
-                        <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny (28)</button>
-                        <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
-                        <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
-                        <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
-                        <button class="filter-btn" style="--btn-color: #8c8c8c;" onclick="filterItems('common')">⚪ Common</button>
-                    </div>
-                </div>
-            </div>
+<div style="text-align: center; margin: 40px 0 30px 0;">
+    <h2 style="color: #4CAF50; text-transform: uppercase; font-size: 2.8em; letter-spacing: 3px; font-weight: 950; margin-bottom: 25px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">✨ VZÁCNÉ ITEMY SERVERU ✨</h2>
+    
+    <!-- HLAVNÍ VYPÍNAČ PRO CELÝ OBSAH KATALOGU -->
+    <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFullCatalog()">👁️ Zobrazit rarity</button>
+    
+    <!-- SKRYTÉ MENU S FILTRY S PLYNULÝM VYSUNUTÍM -->
+    <div id="hidden-filter-menu" class="animated-filter-drawer" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; padding: 5px;">
+            <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny (28)</button>
+            <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
+            <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
+            <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
+            <button class="filter-btn" style="--btn-color: #8c8c8c;" onclick="filterItems('common')">⚪ Common</button>
+        </div>
+    </div>
+</div>
 
-            <!-- TENTO SPECIÁLNÍ OBAL DOČASNĚ SCHOVÁ VŠECHNY TVÉ ITEMY -->
-            <div id="full-items-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(20px) scale(0.98);">
+<!-- TENTO SPECIÁLNÍ OBAL DOČASNĚ SCHOVÁ VŠECHNY TVÉ ITEMY -->
+<div id="full-items-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(20px) scale(0.98);">
+
+<!-- LOGICKÝ SKRIPT KTERÝ ŘÍDÍ SOUČASNÉ ROZBALENÍ FILTRŮ I KATALOGU -->
+<script>
+function toggleFullCatalog() {
+    const filterMenu = document.getElementById("hidden-filter-menu");
+    const itemsWrapper = document.getElementById("full-items-wrapper");
+    const toggleBtn = document.getElementById("toggle-filter-btn");
+
+    if (!filterMenu || !itemsWrapper) return;
+
+    // Pokud je katalog zavřený, rozbalíme filtry i položky najednou
+    if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0" || !filterMenu.style.maxHeight) {
+        
+        // 1. Rozbalení menu s barvami rarit
+        filterMenu.style.maxHeight = "200px";
+        filterMenu.style.opacity = "1";
+        
+        // 2. Rozbalení samotného obsahu s itemy
+        itemsWrapper.style.maxHeight = "6000px"; // Dostatečná výška pro všechny položky katalogu
+        itemsWrapper.style.opacity = "1";
+        itemsWrapper.style.transform = "translateY(0) scale(1)";
+        
+        // 3. Změna textu v hlavním tlačítku na Schovat
+        toggleBtn.innerHTML = "👁️ Skrýt rarity";
+
+        // 4. Hladký sjezd dolů, aby uživatel viděl rozbalená barevná tlačítka
+        setTimeout(() => {
+            filterMenu.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 150);
+
+    } else {
+        // Pokud je otevřený, kliknutím vše plynule zabalíme zpět do nuly
+        filterMenu.style.maxHeight = "0";
+        filterMenu.style.opacity = "0";
+        
+        itemsWrapper.style.maxHeight = "0";
+        itemsWrapper.style.opacity = "0";
+        itemsWrapper.style.transform = "translateY(20px) scale(0.98)";
+        
+        // Návrat původního textu tlačítka
+        toggleBtn.innerHTML = "👁️ Zobrazit rarity";
+    }
+}
+</script>
 
                 <!-- MYTHIC: NIČITELOVA SEKERA -->
                 <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
@@ -805,56 +849,6 @@ document.addEventListener("DOMContentLoaded", function () {
         checkStatus();
         setInterval(checkStatus, 30000);
     </script>
-
-    <!-- ROZBALENÍ FILTRŮ RARIT VÝHRADNĚ PŘES TLAČÍTKO "ZOBRAZIT RARITY" -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const filterMenu = document.getElementById("hidden-filter-menu");
-    if (!filterMenu) return;
-
-    // 1. Schováme filtry rarit hned při načtení stránky
-    filterMenu.style.maxHeight = "0";
-    filterMenu.style.opacity = "0";
-    filterMenu.style.overflow = "hidden";
-    filterMenu.style.transition = "max-height 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease";
-
-    // 2. Najdeme na stránce prvek, který obsahuje přesný text "Zobrazit rarity"
-    let rarityTriggerBtn = null;
-    const allPageElements = document.querySelectorAll("a, button, div, span");
-    
-    for (let el of allPageElements) {
-        if (el.textContent.trim().includes("Zobrazit rarity")) {
-            rarityTriggerBtn = el;
-            break;
-        }
-    }
-
-    // 3. Propojíme akci pouze s tímto tlačítkem na stránce (odkaz v horním menu "Itemy" ignorujeme)
-    if (rarityTriggerBtn) {
-        rarityTriggerBtn.style.cursor = "pointer"; // Zajistí, že se nad ním ukáže ruka
-        
-        rarityTriggerBtn.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            // Pokud je zavřené, plynule ho rozbalíme a sjedeme k němu
-            if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0") {
-                filterMenu.style.maxHeight = "300px"; // Výška dostatečná pro zobrazení tlačítek rarit
-                filterMenu.style.opacity = "1";
-                
-                // Hladký slide down pohledu přímo na nově otevřené filtry
-                setTimeout(() => {
-                    filterMenu.scrollIntoView({ behavior: "smooth", block: "center" });
-                }, 120);
-            } else {
-                // Pokud je otevřené, kliknutím ho schováme zpět do nuly
-                filterMenu.style.maxHeight = "0";
-                filterMenu.style.opacity = "0";
-            }
-        });
-    }
-});
-</script>
 
 </body>
 </html>
