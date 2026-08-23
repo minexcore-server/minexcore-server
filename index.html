@@ -7,12 +7,15 @@
     <style>
         :root { --primary: #4CAF50; --primary-glow: rgba(76, 175, 80, 0.25); --bg-dark: #0a0a0a; --bg-card: rgba(18, 18, 22, 0.95); --text-muted: #b3b3b3; --border: #1f1f1f; }
         
-        /* OBRÁZEK ZAPSÁN PŘÍMO V KÓDU PRO 100% FUNKČNOST */
         body { 
-            margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; 
-            background: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.93)), 
-                        url('https://r2.dev') no-repeat center center fixed/cover;
-            color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            /* ČISTÝ HERNÍ GRADIENT - UŽ ŽÁDNÁ BÍLÁ BARVA */
+            background: radial-gradient(circle at top, #142514 0%, #070708 70%);
+            color: #ffffff; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden; 
         }
         
         .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: bold; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; letter-spacing: 1px; }
