@@ -240,17 +240,17 @@
             </div>
         </section>
 
-        <!-- NADPIS VZÁCNÉ ITEMY & ULTRA MODERNÍ ROZBALOVACÍ FILTRY -->
-            <div style="text-align: center; margin: 30px 0 40px 0;">
-                <p style="color: #cbd5e1; text-transform: uppercase; font-size: 0.9em; letter-spacing: 2px; font-weight: bold; margin-bottom: 15px;">✨ VZÁCNÉ ITEMY SERVERU ✨</p>
+        <!-- ZVĚTŠENÝ NADPIS A CHYTRÉ SCHOVÁVÁNÍ CELÉHO KATALOGU -->
+            <div style="text-align: center; margin: 40px 0 30px 0;">
+                <h2 style="color: #4CAF50; text-transform: uppercase; font-size: 2.8em; letter-spacing: 3px; font-weight: 950; margin-bottom: 25px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">✨ VZÁCNÉ ITEMY SERVERU ✨</h2>
                 
-                <!-- HLAVNÍ PŘEPÍNACÍ TLAČÍTKO -->
-                <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFilterMenu()">👁️ Zobrazit rarity</button>
+                <!-- HLAVNÍ VYPÍNAČ PRO CELÝ OBSAH KATALOGU -->
+                <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFullCatalog()">👁️ Zobrazit rarity</button>
                 
-                <!-- SKRYTÉ MENU S FILTRY, KTERÉ SE FANCY VYSUNE -->
+                <!-- SKRYTÉ MENU S FILTRY S PLYNULÝM VYSUNUTÍM -->
                 <div id="hidden-filter-menu" class="animated-filter-drawer">
-                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; padding: 5px;">
-                        <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
+                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; padding: 5px;">
+                        <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny (28)</button>
                         <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
                         <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
                         <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
@@ -259,63 +259,8 @@
                 </div>
             </div>
 
-            <!-- CSS STYLY PRO PLYNULÉ VYSUNUTÍ MENU (GLASSMORPHISM) -->
-            <style>
-                .main-toggle-btn {
-                    background: rgba(0, 128, 128, 0.05);
-                    border: 1px solid #008080;
-                    color: #fff;
-                    padding: 12px 28px;
-                    border-radius: 8px;
-                    cursor: pointer;
-                    font-weight: 800;
-                    text-transform: uppercase;
-                    font-size: 0.9em;
-                    letter-spacing: 1px;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.15);
-                }
-                .main-toggle-btn:hover {
-                    background: rgba(0, 128, 128, 0.2);
-                    box-shadow: 0 4px 25px #008080;
-                    transform: translateY(-2px);
-                }
-                .animated-filter-drawer {
-                    max-height: 0;
-                    overflow: hidden;
-                    opacity: 0;
-                    transform: translateY(-15px) scale(0.98);
-                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-                .animated-filter-drawer.show-menu {
-                    max-height: 200px;
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
-            </style>
-
-            <!-- JAVASCRIPT PRO UKLÁDÁNÍ STAVU TLAČÍTKA -->
-            <script>
-                function toggleFilterMenu() {
-                    const menu = document.getElementById('hidden-filter-menu');
-                    const btn = document.getElementById('toggle-filter-btn');
-                    
-                    // Přepnutí třídy pro spuštění animace pohybu dolů
-                    menu.classList.toggle('show-menu');
-                    
-                    if (menu.classList.contains('show-menu')) {
-                        btn.innerHTML = '❌ Skrýt rarity';
-                        btn.style.borderColor = '#e74c3c';
-                        btn.style.background = 'rgba(231, 76, 60, 0.05)';
-                        btn.style.boxShadow = '0 4px 15px rgba(231, 76, 60, 0.15)';
-                    } else {
-                        btn.innerHTML = '👁️ Zobrazit rarity';
-                        btn.style.borderColor = '#008080';
-                        btn.style.background = 'rgba(0, 128, 128, 0.05)';
-                        btn.style.boxShadow = '0 4px 15px rgba(0, 128, 128, 0.15)';
-                    }
-                }
-            </script>
+            <!-- TENTO SPECIÁLNÍ OBAL DOČASNĚ SCHOVÁ VŠECHNY TVÉ ITEMY -->
+            <div id="full-items-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); transform: translateY(20px) scale(0.98);">
 
                 <!-- MYTHIC: NIČITELOVA SEKERA -->
                 <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
@@ -512,8 +457,41 @@
                 </div>
             </div>
 
-            <!-- GRAFIKA PRO FILTROVACÍ TLAČÍTKA -->
+            </div> <!-- KONEC OBALU FULL-ITEMS-WRAPPER, KTERÝ ZAVÍRÁ TVÝCH 28 ITEMŮ -->
+
+            <!-- NEJMODERNĚJŠÍ STYLY PRO ANIMACE POHYBU A GLASSMORPHISM -->
             <style>
+                .main-toggle-btn {
+                    background: rgba(0, 128, 128, 0.05);
+                    border: 1px solid #008080;
+                    color: #fff;
+                    padding: 14px 34px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    font-size: 0.95em;
+                    letter-spacing: 1px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.15);
+                }
+                .main-toggle-btn:hover {
+                    background: rgba(0, 128, 128, 0.2);
+                    box-shadow: 0 4px 25px #008080;
+                    transform: translateY(-2px);
+                }
+                .animated-filter-drawer {
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transform: translateY(-15px) scale(0.98);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                .animated-filter-drawer.show-menu {
+                    max-height: 200px;
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
                 .filter-btn {
                     background: rgba(255, 255, 255, 0.02);
                     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -524,38 +502,78 @@
                     font-weight: bold;
                     text-transform: uppercase;
                     font-size: 0.85em;
-                    transition: all 0.3s ease;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 }
-                .filter-btn:hover {
-                    border-color: var(--btn-color, #4CAF50);
-                    color: #fff;
-                    background: rgba(255, 255, 255, 0.05);
+                .filter-btn:hover { border-color: var(--btn-color, #4CAF50); color: #fff; background: rgba(255, 255, 255, 0.05); }
+                .filter-btn.active { background: var(--btn-color, #4CAF50); color: #000 !important; border-color: var(--btn-color, #4CAF50); box-shadow: 0 0 15px var(--btn-color, rgba(76, 175, 80, 0.4)); }
+                .filter-btn.active[style*="e74c3c"], .filter-btn.active[style*="8c8c8c"] { color: #fff !important; }
+
+                .item-node { transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+                @keyframes itemPopIn {
+                    0% { opacity: 0; transform: translateY(25px) scale(0.88); filter: blur(3px); }
+                    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
                 }
-                .filter-btn.active {
-                    background: var(--btn-color, #4CAF50);
-                    color: #000 !important;
-                    border-color: var(--btn-color, #4CAF50);
-                    box-shadow: 0 0 15px var(--btn-color, rgba(76, 175, 80, 0.4));
-                }
-                .filter-btn.active[style*="e74c3c"] { color: #fff !important; }
             </style>
 
-            <!-- JAVASCRIPT LOGIKA PRO SKRÝVÁNÍ KARET -->
+            <!-- JAVASCRIPT PROŘEZÁVAJÍCÍ SCHOVÁVÁNÍ KNIH A BOXŮ NA JEDNO KLIKNUTÍ -->
             <script>
+                function toggleFullCatalog() {
+                    const menu = document.getElementById('hidden-filter-menu');
+                    const wrapper = document.getElementById('full-items-wrapper');
+                    const btn = document.getElementById('toggle-filter-btn');
+                    
+                    menu.classList.toggle('show-menu');
+                    
+                    if (menu.classList.contains('show-menu')) {
+                        // ROZBALENÍ: Otevře filtry i celou mřížku s 28 itemy najednou
+                        btn.innerHTML = '❌ Skrýt rarity';
+                        btn.style.borderColor = '#e74c3c';
+                        btn.style.background = 'rgba(231, 76, 60, 0.05)';
+                        btn.style.boxShadow = '0 4px 15px rgba(231, 76, 60, 0.15)';
+                        
+                        wrapper.style.maxHeight = '4000px'; // Bezpečný prostor pro 28 karet
+                        wrapper.style.opacity = '1';
+                        wrapper.style.transform = 'translateY(0) scale(1)';
+                        
+                        // Spustí fancy animaci vyskočení pro všechny zobrazené karty
+                        filterItems('all');
+                    } else {
+                        // ZABALENÍ: Kompletně skryje filtry i celou mřížku pryč z očí
+                        btn.innerHTML = '👁️ Zobrazit rarity';
+                        btn.style.borderColor = '#008080';
+                        btn.style.background = 'rgba(0, 128, 128, 0.05)';
+                        btn.style.boxShadow = '0 4px 15px rgba(0, 128, 128, 0.15)';
+                        
+                        wrapper.style.maxHeight = '0';
+                        wrapper.style.opacity = '0';
+                        wrapper.style.transform = 'translateY(20px) scale(0.98)';
+                    }
+                }
+
                 function filterItems(rarity) {
+                    // Logika přepínání jednotlivých pod-tlačítek rarit
                     const buttons = document.querySelectorAll('.filter-btn');
                     buttons.forEach(btn => btn.classList.remove('active'));
-                    event.target.classList.add('active');
+                    if (event && event.target && event.target.classList.contains('filter-btn')) {
+                        event.target.classList.add('active');
+                    }
 
                     const items = document.querySelectorAll('.item-node');
                     items.forEach(item => {
+                        item.style.animation = 'none';
+                        item.offsetHeight;
+
                         if (rarity === 'all' || item.classList.contains(rarity)) {
                             item.style.display = 'block';
-                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+                            item.style.animation = 'itemPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
                         } else {
                             item.style.opacity = '0';
-                            item.style.transform = 'scale(0.8)';
-                            setTimeout(() => { item.style.display = 'none'; }, 300);
+                            item.style.transform = 'translateY(15px) scale(0.9)';
+                            setTimeout(() => { 
+                                if (!item.style.animation.includes('itemPopIn')) {
+                                    item.style.display = 'none'; 
+                                }
+                            }, 300);
                         }
                     });
                 }
