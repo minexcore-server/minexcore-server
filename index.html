@@ -245,14 +245,14 @@
         </section>
 
         <!-- ZVĚTŠENÝ NADPIS A CHYTRÉ SCHOVÁVÁNÍ CELÉHO KATALOGU -->
-<div style="text-align: center; margin: 40px 0 30px 0;">
+<div id="itemy" style="text-align: center; margin: 40px 0 30px 0; scroll-margin-top: 50px;">
     <h2 style="color: #4CAF50; text-transform: uppercase; font-size: 2.8em; letter-spacing: 3px; font-weight: 950; margin-bottom: 25px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">✨ VZÁCNÉ ITEMY SERVERU ✨</h2>
     
-    <!-- HLAVNÍ VYPÍNAČ PRO CELÝ OBSAH KATALOGU -->
-    <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFullCatalog()">👁️ Zobrazit rarity</button>
+    <!-- HLAVNÍ VYPÍNAČ POUZE PRO FILTRY RARIT -->
+    <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleRarityFilters()">👁️ Zobrazit rarity</button>
     
     <!-- SKRYTÉ MENU S FILTRY S PLYNULÝM VYSUNUTÍM -->
-    <div id="hidden-filter-menu" class="animated-filter-drawer" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div id="hidden-filter-menu" class="animated-filter-drawer" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
         <div style="display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; padding: 5px;">
             <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny (28)</button>
             <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
@@ -263,51 +263,44 @@
     </div>
 </div>
 
-<!-- TENTO SPECIÁLNÍ OBAL DOČASNĚ SCHOVÁ VŠECHNY TVÉ ITEMY -->
-<div id="full-items-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(20px) scale(0.98);">
-
-<!-- LOGICKÝ SKRIPT KTERÝ ŘÍDÍ SOUČASNÉ ROZBALENÍ FILTRŮ I KATALOGU -->
 <script>
-function toggleFullCatalog() {
+function toggleRarityFilters() {
     const filterMenu = document.getElementById("hidden-filter-menu");
-    const itemsWrapper = document.getElementById("full-items-wrapper");
     const toggleBtn = document.getElementById("toggle-filter-btn");
 
-    if (!filterMenu || !itemsWrapper) return;
+    if (!filterMenu || !toggleBtn) return;
 
-    // Pokud je katalog zavřený, rozbalíme filtry i položky najednou
+    // Pokud jsou filtry zavřené, plynule je rozbalíme dolů
     if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0" || !filterMenu.style.maxHeight) {
-        
-        // 1. Rozbalení menu s barvami rarit
-        filterMenu.style.maxHeight = "200px";
+        filterMenu.style.maxHeight = "200px"; // Dostatečná výška pro řadu tlačítek
         filterMenu.style.opacity = "1";
-        
-        // 2. Rozbalení samotného obsahu s itemy
-        itemsWrapper.style.maxHeight = "6000px"; // Dostatečná výška pro všechny položky katalogu
-        itemsWrapper.style.opacity = "1";
-        itemsWrapper.style.transform = "translateY(0) scale(1)";
-        
-        // 3. Změna textu v hlavním tlačítku na Schovat
         toggleBtn.innerHTML = "👁️ Skrýt rarity";
-
-        // 4. Hladký sjezd dolů, aby uživatel viděl rozbalená barevná tlačítka
+        
+        // Jemný sjezd dolů pro dokonalé vycentrování otevřených tlačítek na displeji
         setTimeout(() => {
             filterMenu.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 150);
-
+        }, 100);
     } else {
-        // Pokud je otevřený, kliknutím vše plynule zabalíme zpět do nuly
+        // Pokud jsou otevřené, kliknutím je plynule zasuneme zpět
         filterMenu.style.maxHeight = "0";
         filterMenu.style.opacity = "0";
-        
-        itemsWrapper.style.maxHeight = "0";
-        itemsWrapper.style.opacity = "0";
-        itemsWrapper.style.transform = "translateY(20px) scale(0.98)";
-        
-        // Návrat původního textu tlačítka
         toggleBtn.innerHTML = "👁️ Zobrazit rarity";
     }
 }
+
+// Oprava horního odkazu v menu, aby pouze plynule sjel dolů k sekci a nic neotvíral
+document.addEventListener("DOMContentLoaded", function () {
+    const itemyMenuLink = document.querySelector('a[href="#itemy"]');
+    if (itemyMenuLink) {
+        itemyMenuLink.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetSection = document.getElementById("itemy");
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    }
+});
 </script>
 
                 <!-- MYTHIC: NIČITELOVA SEKERA -->
