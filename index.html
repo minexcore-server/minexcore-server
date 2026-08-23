@@ -604,31 +604,24 @@
         </section>
 
        <!-- SEKCE MAPA -->
-<section id="mapa" style="width: 100%; max-width: 100%; margin: 0; padding: 40px 0; box-sizing: border-box;">
+<section id="mapa" style="width: 100%; max-width: 1400px; margin: 0 auto; padding: 60px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box;">
     
-    <!-- Původní textové elementy se zachovanou strukturou, vyčištěné od herních statusů -->
-    <div class="sec-desc" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #718096; margin-bottom: 8px; text-align: center; font-family: sans-serif;">Interaktivní přehled světa</div>
-    <div class="sec-title" style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 30px; text-align: center; font-family: sans-serif;">🗺️ Živá 3D Dynmapa</div>
+    <!-- Původní nadpisy v čistém prémiovém stylu -->
+    <div class="sec-desc" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #718096; margin-bottom: 6px; text-align: center;">Interaktivní přehled světa</div>
+    <div class="sec-title" style="font-size: 2.6rem; font-weight: 800; color: #ffffff; margin-bottom: 40px; text-align: center; letter-spacing: -0.5px;">🗺️ Živá 3D Dynmapa</div>
     
-    <!-- Čisté, obří, bezokrajové okno zobrazující POUZE samotnou mapu světa -->
+    <!-- Původní map-holder rozšířený do obřího bezokrajového okna -->
     <div class="map-holder" style="
         width: 100%; 
-        max-width: 1600px; 
-        margin: 0 auto; 
-        padding: 0 20px;
-        box-sizing: border-box;
+        background: #15171e; 
+        border: 1px solid rgba(255, 255, 255, 0.08); 
+        border-radius: 20px; 
+        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), 0 18px 36px -18px rgba(0, 0, 0, 0.5); 
+        overflow: hidden;
     ">
         <iframe 
-            src="data:text/html;base64,PGh0bWw+PGhlYWQ+PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1TZWN1cml0eS1Qb2xpY3kiIGNvbnRlbnQ9InVwZ3JhZGUtaW5zZWN1cmUtcmVxdWVzdHMiPjxzdHlsZT5odG1sLGJvZHl7bWFyZ2luOjA7cGFkZGluZzowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7b3ZlcmZsb3c6aGlkZGVuO31pZnJhbWV7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTtib3JkZXI6bm9uZTt9PC9zdHlsZT48L2hlYWQ+PGJvZHk+PGlmcmFtZSBzcmM9Imh0dHA6Ly9waGFudG9tLmhvc3RpZnkuY3o6NTAxMzAvIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+PC9ib2R5PjwvaHRtbD4="
-            style="
-                width: 100%; 
-                height: 850px; 
-                border: 1px solid rgba(255, 255, 255, 0.1); 
-                border-radius: 16px; 
-                box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
-                display: block;
-                background: #15171e;
-            " 
+            src="https://minexcore.dynmapa.cz/" 
+            style="width: 100%; height: 850px; border: none; display: block;" 
             allowfullscreen>
         </iframe>
     </div>
