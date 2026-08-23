@@ -604,49 +604,24 @@
         </section>
 
        <!-- SEKCE MAPA -->
-<section id="mapa" style="
-    width: 100%; 
-    max-width: 1400px; 
-    margin: 0 auto; 
-    padding: 80px 24px; 
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-    box-sizing: border-box;
-">
+<section id="mapa" style="width: 100%; max-width: 1450px; margin: 0 auto; padding: 80px 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box;">
     
-    <!-- Luxusní gradientní záhlaví -->
-    <div style="text-align: center; margin-bottom: 50px;">
-        <div class="sec-desc" style="
-            font-size: 0.85rem; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            color: #00d2ff; 
-            margin-bottom: 12px;
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        ">Interaktivní přehled světa</div>
-        
-        <div class="sec-title" style="
-            font-size: 3.2rem; 
-            font-weight: 900; 
-            color: #ffffff; 
-            letter-spacing: -1px; 
-            margin: 0;
-            background: linear-gradient(180deg, #ffffff 30%, #a0aec0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        ">🗺️ Živá 3D Dynmapa</div>
+    <!-- Profesionální záhlaví v luxusním čistém designu -->
+    <div style="border-left: 4px solid #00d2ff; padding-left: 20px; margin-bottom: 45px; text-align: left;">
+        <div class="sec-desc" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #718096; margin-bottom: 6px;">Interaktivní přehled světa</div>
+        <div class="sec-title" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin: 0;">🗺️ Živá 3D Dynmapa</div>
     </div>
     
-    <!-- Obří prémiový map-holder s neonovým podsvícením a plynulou animací -->
+    <!-- Obří prémiový map-holder s filmovým stínováním a jemným ohraničením -->
     <div class="map-holder" style="
         width: 100%; 
         background: #111216; 
-        border: 1px solid rgba(0, 210, 255, 0.15); 
+        border: 1px solid rgba(255, 255, 255, 0.08); 
         border-radius: 24px; 
-        box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(0, 210, 255, 0.15); 
+        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 15px 30px -20px rgba(0, 0, 0, 0.4); 
         overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    " onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(0, 210, 255, 0.4)'; this.style.boxShadow='0 50px 100px -20px rgba(0, 0, 0, 0.9), 0 0 50px -5px rgba(0, 210, 255, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 210, 255, 0.15)'; this.style.boxShadow='0 40px 80px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(0, 210, 255, 0.15)';">
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(0, 210, 255, 0.3)'; this.style.boxShadow='0 45px 80px -20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 210, 255, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.boxShadow='0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 15px 30px -20px rgba(0, 0, 0, 0.4)';">
         <iframe 
             src="https://minexcore.dynmapa.cz/" 
             style="width: 100%; height: 880px; border: none; display: block; background: #111216;" 
