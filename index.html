@@ -604,27 +604,56 @@
         </section>
 
        <!-- SEKCE MAPA -->
-<section id="mapa" style="width: 100%; max-width: 1450px; margin: 0 auto; padding: 80px 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; box-sizing: border-box;">
+<section id="mapa" style="
+    width: 100%; 
+    max-width: 1550px; 
+    margin: 0 auto; 
+    padding: 100px 24px; 
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; 
+    box-sizing: border-box;
+">
     
-    <!-- Profesionální záhlaví v luxusním čistém designu -->
-    <div style="border-left: 4px solid #00d2ff; padding-left: 20px; margin-bottom: 45px; text-align: left;">
-        <div class="sec-desc" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #718096; margin-bottom: 6px;">Interaktivní přehled světa</div>
-        <div class="sec-title" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin: 0;">🗺️ Živá 3D Dynmapa</div>
+    <!-- Špičková asymetrická typografie s metalickým gradientem -->
+    <div style="border-left: 5px solid #00d2ff; padding-left: 24px; margin-bottom: 55px; text-align: left;">
+        <div class="sec-desc" style="
+            font-size: 0.85rem; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            color: #00d2ff; 
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+        ">Interaktivní přehled světa</div>
+        
+        <div class="sec-title" style="
+            font-size: 3.4rem; 
+            font-weight: 900; 
+            color: #ffffff; 
+            letter-spacing: -1.5px; 
+            margin: 0;
+            line-height: 1.05;
+            background: linear-gradient(180deg, #ffffff 40%, #a0aec0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        ">🗺️ Živá 3D Dynmapa</div>
     </div>
     
-    <!-- Obří prémiový map-holder s filmovým stínováním a jemným ohraničením -->
+    <!-- Masivní bezokrajový map-holder s ultra jemnou fluidní stínovou architekturou -->
     <div class="map-holder" style="
         width: 100%; 
-        background: #111216; 
-        border: 1px solid rgba(255, 255, 255, 0.08); 
-        border-radius: 24px; 
-        box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 15px 30px -20px rgba(0, 0, 0, 0.4); 
+        background: #0f1015; 
+        border: 1px solid rgba(255, 255, 255, 0.07); 
+        border-radius: 28px; 
+        box-shadow: 
+            0 30px 70px -15px rgba(0, 0, 0, 0.85), 
+            0 15px 35px -20px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
         overflow: hidden;
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-    " onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(0, 210, 255, 0.3)'; this.style.boxShadow='0 45px 80px -20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 210, 255, 0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.08)'; this.style.boxShadow='0 30px 60px -15px rgba(0, 0, 0, 0.6), 0 15px 30px -20px rgba(0, 0, 0, 0.4)';">
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+    " onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(0, 210, 255, 0.35)'; this.style.boxShadow='0 50px 100px -20px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 210, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.07)'; this.style.boxShadow='0 30px 70px -15px rgba(0, 0, 0, 0.85), 0 15px 35px -20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08)';" aria-label="Interactive world map viewport">
         <iframe 
-            src="https://minexcore.dynmapa.cz/" 
-            style="width: 100%; height: 880px; border: none; display: block; background: #111216;" 
+            src="https://dynmapa.cz" 
+            style="width: 100%; height: 920px; border: none; display: block; background: #0f1015;" 
             allowfullscreen>
         </iframe>
     </div>
