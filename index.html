@@ -32,6 +32,9 @@
             background-color: #121212;
             padding: 20px 0;
             border-bottom: 1px solid #1f1f1f;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         nav .nav-container {
             max-width: 1200px;
@@ -131,6 +134,8 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             padding: 20px;
             gap: 20px;
+            position: relative;
+            z-index: 10;
         }
         .status-box {
             text-align: center;
@@ -281,6 +286,7 @@
         😎 ZCELA NOVÝ SURVIVAL SERVER! DO 1.10.2026 KAŽDÝ ZÍSKÁ VIP PO PRVNÍM PŘIPOJENÍ JAKO DÁREK! 🎉
     </div>
 
+    <!-- Opravená navigace - ID odkazů odpovídají sekcím na stránce -->
     <nav>
         <div class="nav-container">
             <div class="logo">MINEXCORE</div>
@@ -321,17 +327,14 @@
 
     <div class="container">
 
+        <!-- Opravené ID na "funkce" -->
         <section id="funkce">
             <div class="sec-desc">Jeden svět. Nekonečné možnosti.</div>
             <div class="sec-title">🏰 O serveru a funkcích</div>
             <div class="features-grid">
                 <div class="feature-card">
                     <h3>🌍 Otevřený svět</h3>
-                    <p>Zcela jiná generace světa díky datapackům TECTONIC. Objevuj majestátní hory, kaňony a stav vlastní základnu.</p>
+                    <p>Zcela jiná generace sveta díky datapackům TECTONIC. Objevuj majestátní hory, kaňony a stav vlastní základnu.</p>
                 </div>
                 <div class="feature-card">
                     <h3>🏝️ Minihry</h3>
-                    <p>Najdeš u nás SkyBlock, OneBlock a herní MobArenu. Další zábavné minihry se na server přidají již brzy.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🏪 Obchody a Trh</h3>
