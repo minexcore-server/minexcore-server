@@ -604,94 +604,36 @@
         </section>
 
        <!-- SEKCE MAPA -->
-<section id="mapa" style="
-    width: 100%; 
-    max-width: 100%; 
-    margin: 0; 
-    padding: 100px 0 60px 0; 
-    background: #0f1015; 
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; 
-    box-sizing: border-box;
-">
+<section id="mapa" style="width: 100%; max-width: 100%; margin: 0; padding: 40px 0; box-sizing: border-box;">
     
-    <!-- Širokoúhlé, čisté profesionální záhlaví -->
-    <div style="max-width: 1650px; margin: 0 auto; padding: 0 40px; margin-bottom: 45px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 24px;">
-        <div style="border-left: 5px solid #00d2ff; padding-left: 20px;">
-            <div class="sec-desc" style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #718096; margin-bottom: 8px;">Interaktivní přehled světa</div>
-            <div class="sec-title" style="font-size: 3.2rem; font-weight: 900; color: #ffffff; letter-spacing: -1.5px; margin: 0; line-height: 1.1;">🗺️ Živá 3D Dynmapa</div>
-        </div>
-        <!-- Status bar indikující aktivní propojení se serverem -->
-        <div style="display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.03); padding: 12px 24px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px);">
-            <span style="width: 10px; height: 10px; background: #00e676; border-radius: 50%; display: inline-block; box-shadow: 0 0 14px #00e676; animation: mapPulse 2s infinite;"></span>
-            <span style="font-size: 0.9rem; color: #e2e8f0; font-weight: 600; letter-spacing: 0.5px;">Live Satellite Stream</span>
-        </div>
+    <!-- Původní textové elementy se zachovanou strukturou, vyčištěné od herních statusů -->
+    <div class="sec-desc" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #718096; margin-bottom: 8px; text-align: center; font-family: sans-serif;">Interaktivní přehled světa</div>
+    <div class="sec-title" style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-bottom: 30px; text-align: center; font-family: sans-serif;">🗺️ Živá 3D Dynmapa</div>
+    
+    <!-- Čisté, obří, bezokrajové okno zobrazující POUZE samotnou mapu světa -->
+    <div class="map-holder" style="
+        width: 100%; 
+        max-width: 1600px; 
+        margin: 0 auto; 
+        padding: 0 20px;
+        box-sizing: border-box;
+    ">
+        <iframe 
+            src="data:text/html;base64,PGh0bWw+PGhlYWQ+PG1ldGEgaHR0cC1lcXVpdj0iQ29udGVudC1TZWN1cml0eS1Qb2xpY3kiIGNvbnRlbnQ9InVwZ3JhZGUtaW5zZWN1cmUtcmVxdWVzdHMiPjxzdHlsZT5odG1sLGJvZHl7bWFyZ2luOjA7cGFkZGluZzowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7b3ZlcmZsb3c6aGlkZGVuO31pZnJhbWV7d2lkdGg6MTAwJTtoZWlnaHQ6MTAwJTtib3JkZXI6bm9uZTt9PC9zdHlsZT48L2hlYWQ+PGJvZHk+PGlmcmFtZSBzcmM9Imh0dHA6Ly9waGFudG9tLmhvc3RpZnkuY3o6NTAxMzAvIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+PC9ib2R5PjwvaHRtbD4="
+            style="
+                width: 100%; 
+                height: 850px; 
+                border: 1px solid rgba(255, 255, 255, 0.1); 
+                border-radius: 16px; 
+                box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+                display: block;
+                background: #15171e;
+            " 
+            allowfullscreen>
+        </iframe>
     </div>
-
-    <!-- Obří Dashboard Kontejner -->
-    <div style="max-width: 1650px; margin: 0 auto; padding: 0 20px;">
-        <div class="map-holder" style="
-            width: 100%; 
-            background: #15171e; 
-            border: 1px solid rgba(255, 255, 255, 0.07); 
-            border-radius: 24px; 
-            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
-            overflow: hidden;
-        ">
-            
-            <!-- Profesionální záhlaví simulující rozhraní moderní aplikace -->
-            <div style="background: #1a1d26; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                <!-- Prvky simulující systémové ovládání -->
-                <div style="display: flex; gap: 10px;">
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
-                </div>
-                <!-- Prvek adresního řádku -->
-                <div style="background: rgba(0, 0, 0, 0.3); padding: 10px 36px; border-radius: 40px; font-size: 0.85rem; color: #a0aec0; font-weight: 400; display: flex; align-items: center; gap: 10px; width: 45%; max-width: 550px; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.03); letter-spacing: 0.3px;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    mapa.minexcore.cz
-                </div>
-                <!-- Informační štítek motoru mapy -->
-                <div style="font-size: 0.8rem; color: #718096; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">
-                    HQ Resolution
-                </div>
-            </div>
-
-            <!-- Samotné vestavěné okno mapy s integrovanou ochranou proti Mixed Content blokování -->
-            <iframe 
-                src="about:blank"
-                id="dynmap-secure-frame"
-                style="width: 100%; height: 900px; border: none; display: block; background: #15171e;" 
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-
+    
 </section>
-
-<!-- Bezpečný injektor obsahu, který vynucuje načtení mapy přímo do stránky navzdory restrikcím prohlížeče -->
-<script>
-(function() {
-    var targetUrl = "http://hostify.cz";
-    var iframe = document.getElementById("dynmap-secure-frame");
-    if (iframe) {
-        // Využití asynchronního zápisu do dokumentu iframe, což obchází přímou detekci protokolu Mixed Content u mnoha prohlížečů
-        var doc = iframe.contentDocument || iframe.contentWindow.document;
-        doc.open();
-        doc.write('<html><head><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><style>html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden;}iframe{width:100%;height:100%;border:none;}</style></head><body><iframe src="' + targetUrl + '" allowfullscreen></iframe></body></html>');
-        doc.close();
-    }
-})();
-</script>
-
-<!-- Stylová animace pulzování pro Live Status -->
-<style>
-@keyframes mapPulse {
-    0% { transform: scale(0.95); opacity: 0.6; }
-    50% { transform: scale(1.15); opacity: 1; box-shadow: 0 0 14px #00e676; }
-    100% { transform: scale(0.95); opacity: 0.6; }
-}
-</style>
 
     </div> <!-- Konec containeru -->
 
