@@ -244,17 +244,52 @@
         <section id="itemy">
             <div class="sec-desc">Katalog unikátního vybavení serveru</div>
             <div class="sec-title">💎 Rarity & Custom Itemy</div>
-            <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 30px auto; font-size: 1.1em;">Vyfiltruj si speciální zbraně, nástroje a zbroje podle jejich vzácnosti a objev jejich magické vlastnosti! ⚔️</p>
+            <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 40px auto; font-size: 1.1em;">Kliknutím na jednotlivé herní třídy odemkneš truhly s předměty. Sleduj tu fancy animaci! ⚔️</p>
             
-            <!-- TLAČÍTKA PRO FILTROVÁNÍ -->
-            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
-                <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
-                <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
-                <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
-                <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
-            </div>
+            <div class="fancy-accordion-wrapper" style="max-width: 1100px; margin: 0 auto; text-align: left;">
 
-            <div class="features-grid" id="items-container">
+                <!-- ================= TRUHLA: MYTHIC (🔴 REZAVÁ / ČERVENÁ) ================= -->
+                <details class="fancy-item-drawer mythic-drawer" style="margin-bottom: 20px;">
+                    <summary class="drawer-header" style="--glow-color: #e74c3c;">
+                        <span>🔴 MÝTICKÉ ARTEFAKTY (Mythic)</span>
+                    </summary>
+                    <div class="drawer-body">
+                        <div class="features-grid">
+                            <!-- 1. ITEM -->
+                            <div class="feature-card animated-item" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);">
+                                <h3 style="color: #e74c3c; margin-bottom: 5px;">🪓 Ničitelova sekera</h3>
+                                <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic</span>
+                                <p style="margin-top: 15px; color: #cbd5e1;">Zlověstná zbraň s mýtickou červenou aurou. Má schopnost drtit obranu nepřátel a při kritickém zásahu vyvolá ničivou tlakovou vlnu.</p>
+                            </div>
+                            <!-- 2. ITEM -->
+                            <div class="feature-card animated-item" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);">
+                                <h3 style="color: #e74c3c; margin-bottom: 5px;">🔨 Drtič Hvězdné Pěny</h3>
+                                <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Palcát</span>
+                                <p style="margin-top: 15px; color: #cbd5e1;">Těžká mace s nestvůrnou útočnou silou. Čím delší pád na cíl provedeš, tím masivnější kinetické poškození nepříteli udělíš. Kolem zbraně navíc víří zářivě bílé jiskry.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+            <!-- NOVÉ STYLY PRO FANCY POHYBOVÉ ANIMACE A NEONOVÉ ZÁŘENÍ -->
+            <style>
+                .fancy-item-drawer { background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s ease; }
+                .drawer-header { padding: 22px; font-weight: 900; font-size: 1.25em; cursor: pointer; user-select: none; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.02); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
+                .drawer-header:hover { background: rgba(255, 255, 255, 0.02); color: var(--glow-color); box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), 0 0 15px var(--glow-color); }
+                .drawer-header::after { content: '▼'; font-size: 0.8em; color: var(--glow-color); transition: transform 0.4s ease; }
+                .fancy-item-drawer[open] .drawer-header::after { transform: rotate(-180deg); }
+                .drawer-body { padding: 30px; background: rgba(5, 5, 7, 0.4); border-top: 1px solid rgba(255,255,255,0.03); }
+                
+                /* Fancy animace otevření a vyskočení itemů */
+                @keyframes itemPop {
+                    0% { opacity: 0; transform: translateY(30px) scale(0.9); filter: blur(5px); }
+                    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+                }
+                .fancy-item-drawer[open] .animated-item { animation: itemPop 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+                .fancy-item-drawer::-webkit-details-marker { display: none; }
+                summary::-webkit-details-marker { display: none; }
+            </style>
+
                 <!-- MYTHIC: NIČITELOVA SEKERA -->
                 <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
                     <h3 style="color: #e74c3c; margin-bottom: 5px;">🪓 Ničitelova sekera</h3>
@@ -281,6 +316,172 @@
                     <h3 style="color: #3498db; margin-bottom: 5px;">⛏️ Smelter Pickaxe</h3>
                     <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare</span>
                     <p style="margin-top: 15px; color: #cbd5e1;">Vzácný krumpáč se zabudovaným kouzlem, které automaticky upeče každou vytěženou rudu železa či zlata přímo za běhu.</p>
+                </div>
+                <!-- 1. MYTHIC MACE / PALCÁT -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #e74c3c; margin-bottom: 5px;">🔨 Drtič Hvězdné Pěny</h3>
+                    <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Palcát</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Těžká mace s nestvůrnou útočnou silou. Čím delší pád na cíl provedeš, tím masivnější kinetické poškození nepříteli udělíš. Kolem zbraně navíc víří zářivě bílé jiskry.</p>
+                </div>
+
+                <!-- 2. MYTHIC ELYTRA -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #e74c3c; margin-bottom: 5px;">🦇 Křídla Temného Přízraku</h3>
+                    <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Elytra</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Legendární křídla pro nebeské vládce. Umožňují ti plachtit vzduchem bez opotřebování materiálu a dávají ti trvalý ochranný bonus proti zákeřným šípům nepřátelských kostlivců.</p>
+                </div>
+
+                <!-- 3. MYTHIC HELMA -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #e74c3c; margin-bottom: 5px;">🪖 Přilba Nekonečné Vize</h3>
+                    <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Helma</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Mystická pokrývka hlavy zrozená v hlubinách. Propůjčuje ti trvalé noční vidění, schopnost dýchat pod vodou a kompletně odráží zákeřné útoky fantomů z oblohy.</p>
+                </div>
+
+                <!-- 4. MYTHIC KRUMPÁČ -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #e74c3c; margin-bottom: 5px;">⛏️ Drtič Tektonických Desek</h3>
+                    <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Krumpáč</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Demoliční těžařský krumpáč naplněný extrémní průrazností. Okamžitě promění Obsidian nebo Deepslate v prach, přičemž z hrotu vyzařuje laserové světlo označující bloky.</p>
+                </div>
+
+                <!-- 5. MYTHIC KUŠE -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #e74c3c; margin-bottom: 5px;">🎯 Kuše Pekelné Salvy</h3>
+                    <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Kuše</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Zbraň s obrovskou palebnou silou. Vystřeluje tři rakety nebo šípy najednou v rozptylu, které při dopadu vyvolají masivní ohnivou salvu detonací.</p>
+                </div>
+
+                <!-- 6. LEGENDARY LUK -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">🏹 Lovec Hvězdného Svitu</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Luk</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Mystická střelná zbraň. Každý plně natažený šíp vyvolá silnou rázovou vlnu prázdnoty, která odhodí zasažený cíl o několik metrů zpět a zaručeně udělí drtivý kritický zásah.</p>
+                </div>
+
+                <!-- 7. LEGENDARY BOTY -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">🥾 Poutníci Gravitace</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Boty</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Okřídlená obuv s tlumicím kouzlem. Kompletně ruší poškození z jakýchkoliv nechtěných pádů z výšek a umožňuje ti provádět vysoké dvojskoky, doprovázené jemnými obláčky prachu pod patami.</p>
+                </div>
+
+                <!-- 8. LEGENDARY ŠTÍT -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">🛡️ Štít Královské Stráže</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Štít</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Nezlomný runový štít. Poskytuje absolutní imunizaci proti výbuchům Creeperů a při úspěšném zablokování rány zblízka odhodí útočníka o 4 bloky dozadu.</p>
+                </div>
+                <!-- 9. LEGENDARY KRUNÝŘ -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">👕 Hrudní Plát Božského Svitu</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Krunýř</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Hrudní brnění s extrémní pasivní odolností. V krizových situacích kolem tebe na 5 sekund vyvolá neprostupnou kruhovou bariéru ze světelných částic.</p>
+                </div>
+
+                <!-- 10. LEGENDARY DÝKA -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">🗡️ Dýka Stínového Kroku</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Dýka</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Lehká, rituálně kovaná dýka. Při úspěšném útoku ze zálohy ti okamžitě propůjčí na 3 sekundy efekt neviditelnosti a bleskovou rychlost pohybu.</p>
+                </div>
+
+                <!-- 11. LEGENDARY ELIXÍR -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
+                    <h3 style="color: #d4af37; margin-bottom: 5px;">🧪 Lektvar Dračí Krve</h3>
+                    <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Legendary Elixír</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Vzácná fialová esence. Po vypití trvale navýší tvůj maximální herní počet životů o 4 přídavná srdíčka a propůjčí ti regeneraci II na 2 minuty.</p>
+                </div>
+
+                <!-- 12. RARE TROJZUBEC -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">🔱 Harpuna Bouřlivých Mračen</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Trojzubec</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Bleskový trojzubec ukovaný z mořské oceli. Během deště a bouřky tě po hození přitáhne za sebou rychlostí větru, a pokud zasáhne nepřítele, snese se na něj ničivý herní blesk.</p>
+                </div>
+
+                <!-- 13. RARE SEKERA -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">🪓 Ostří Lesní Prosperity</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Sekera</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Nástroj pro dřevorubce se skrytou schopností pokácet celý kmen stromu najednou po odtěžení jediného spodního bloku. Zároveň ti garantuje dvojnásobný drop surového dřeva.</p>
+                </div>
+
+                <!-- 14. RARE LOPATA -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">🥄 Bagr Ztracených Pokladů</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Lopata</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Široká lopata určená pro bleskové hloubení písku, hlíny či štěrku. Při prosévání podzemního terénu má pasivní bonus občas vykopat užitečné minerály a prastaré kosti.</p>
+                </div>
+
+                <!-- 15. RARE KALHOTY -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">👖 Legíny Žhavého Vulkánu</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Kalhoty</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Kalhoty kované v lávových jezerech Netheru. Dávají ti trvalý pasivní bonus v podobě imunity vůči ohni, a pokud tě napadne nepřítel zblízka, plamenné jiskry ho automaticky zapálí.</p>
+                </div>
+
+                <!-- ================= START RUČNÍ COMMON SEKCE (ŠEDÁ) ================= -->
+                <!-- 16. COMMON LOPATA -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">🪵 Starter Shovel</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Lopata</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Základní, spolehlivá lopata z pevného materiálu s vylepšenou odolností. Má vysokou pasivní šanci, že při odkopávání bloků hlíny neuveze žádnou výdrž nástroje.</p>
+                </div>
+                <!-- 17. RARE KRUMPÁČ -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">⛏️ Krumpáč Bohaté Žíly</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Krumpáč</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Těžařský nástroj s extrémním štěstím. Ze všech rud drahých kovů dokáže spolehlivě vygenerovat až trojnásobný drop čistých herních surovin.</p>
+                </div>
+
+                <!-- 18. RARE BOTY -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">👟 Boty Horské Hbitosti</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Boty</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Pohodlná kožená obuv. Svému majiteli dává permanentní efekt rychlosti pohybu I a umožňuje plynule vybíhat bloky vysoké jeden metr bez skákání.</p>
+                </div>
+
+                <!-- 19. RARE MEČ -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
+                    <h3 style="color: #3498db; margin-bottom: 5px;">🗡️ Čepel Upířího Hladu</h3>
+                    <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare Meč</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Zbraň kovaná za zatmění měsíce. Má stabilní 15% lifesteal bonus — při úspěšném kritickém zásahu ti vyléčí zlomek zdraví zpět do srdíček.</p>
+                </div>
+
+                <!-- 20. COMMON RYBÁŘSKÝ PRUT -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">🎣 Magnet na Vodní Tvory</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Prut</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Rybářský prut s návnadou přitahující vodní život. Extrémně zkracuje čas čekání na záběr splávku a dává ti o polovinu vyšší šanci na chycení čerstvých ryb.</p>
+                </div>
+
+                <!-- 21. COMMON SEKERA -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">🪓 Sekera Trvanlivosti</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Sekera</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Pracovní nástroj pro začínající těžaře dřeva. Nekonzumuje výdrž tak rychle a dává ti solidní rychlost sekání do všech typů kmenů stromů.</p>
+                </div>
+
+                <!-- 22. COMMON MOTYKA -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">🌾 Farmářská Rychlo-motyka</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Motyka</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Užitečné náčiní pro pěstitele. Dokáže automaticky sklidit a znovu zasadit pšenici, brambory nebo mrkve v plošné oblasti 3x3 bloky kolem tebe.</p>
+                </div>
+
+                <!-- 23. COMMON KRUMPÁČ -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">⛏️ Kopáč Obyčejného Kamene</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Krumpáč</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Základní herní krumpáč. Má mírně zvýšenou rychlost těžby kamene a cobblestonu, ideální pro první herní výpravy do mělkých šachet.</p>
+                </div>
+
+                <!-- 24. COMMON MEČ -->
+                <div class="feature-card item-node common" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(140, 140, 140, 0.03) 100%); border-color: #8c8c8c; transition: all 0.3s ease;">
+                    <h3 style="color: #8c8c8c; margin-bottom: 5px;">🗡️ Cvičný Železný Tesák</h3>
+                    <span style="background: #8c8c8c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Common Meč</span>
+                    <p style="margin-top: 15px; color: #cbd5e1;">Lehký startovní meč. Uděluje vyrovnané základní poškození a dává ti o něco vyšší šanci na odhození útočících pavouků a zombií.</p>
                 </div>
             </div>
 
