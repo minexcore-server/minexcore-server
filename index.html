@@ -604,28 +604,73 @@
         </section>
 
         <!-- SEKCE MAPA -->
-<section id="mapa" style="width: 100%; max-width: 1300px; margin: 0 auto; padding: 60px 24px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; box-sizing: border-box;">
+<section id="mapa" style="
+    width: 100%; 
+    max-width: 100%; 
+    margin: 0; 
+    padding: 80px 0 40px 0; 
+    background: #0b0c10; 
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; 
+    box-sizing: border-box; 
+    overflow: hidden;
+">
     
-    <!-- Profesionální minimalistické záhlaví -->
-    <div style="border-left: 4px solid #0066cc; padding-left: 16px; margin-bottom: 32px; text-align: left;">
-        <div class="sec-desc" style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #666666; margin-bottom: 4px;">Interaktivní přehled světa</div>
-        <div class="sec-title" style="font-size: 2rem; font-weight: 700; color: #111111; letter-spacing: -0.5px;">🗺️ Živá 3D Dynmapa</div>
+    <!-- Prémiové, širokoúhlé záhlaví sekce -->
+    <div style="max-width: 1600px; margin: 0 auto; padding: 0 40px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+        <div>
+            <div class="sec-desc" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #4fc3f7; margin-bottom: 8px;">Centrální Monitorování Infrastruktury</div>
+            <div class="sec-title" style="font-size: 2.8rem; font-weight: 800; color: #ffffff; letter-spacing: -1px; margin: 0; line-height: 1.1;">🗺️ Živá 3D Dynmapa</div>
+        </div>
+        <!-- Profesionální stavové indikátory po pravé straně -->
+        <div style="display: flex; gap: 24px; align-items: center; background: rgba(255,255,255,0.03); padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+            <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #a0aec0; font-weight: 500;">
+                <span style="width: 8px; height: 8px; background: #00e676; border-radius: 50%; display: inline-block; box-shadow: 0 0 12px #00e676;"></span>
+                Hostify Node: Active
+            </div>
+            <div style="width: 1px; height: 16px; background: rgba(255,255,255,0.15);"></div>
+            <div style="font-size: 0.85rem; color: #ffffff; font-weight: 600; letter-spacing: 0.5px;">
+                RTT: <span style="color: #00e676;">12ms</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Čisté korporátní okno s poměrem stran 16:9 -->
-    <div class="map-holder" style="
-        width: 100%; 
-        background: #ffffff; 
-        border: 1px solid #e1e4e8; 
-        border-radius: 12px; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.02); 
-        overflow: hidden;
-    ">
-        <iframe 
-            src="https://minexcore.dynmapa.cz/" 
-            style="width: 100%; aspect-ratio: 16 / 9; border: none; display: block;" 
-            allowfullscreen>
-        </iframe>
+    <!-- Obří Full-Width Dashboard Kontejner -->
+    <div style="max-width: 1720px; margin: 0 auto; padding: 0 20px;">
+        <div class="map-holder" style="
+            width: 100%; 
+            background: #121318; 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 20px; 
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
+            overflow: hidden;
+        ">
+            
+            <!-- Profesionální záhlaví simulovaného terminálu / prohlížeče -->
+            <div style="background: #1a1c23; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <!-- Mac ovládací prvky -->
+                <div style="display: flex; gap: 8px;">
+                    <span style="width: 12px; height: 12px; background: rgba(255,255,255,0.15); border-radius: 50%;"></span>
+                    <span style="width: 12px; height: 12px; background: rgba(255,255,255,0.15); border-radius: 50%;"></span>
+                    <span style="width: 12px; height: 12px; background: rgba(255,255,255,0.15); border-radius: 50%;"></span>
+                </div>
+                <!-- Bezpečná adresní lišta -->
+                <div style="background: rgba(0, 0, 0, 0.25); padding: 8px 30px; border-radius: 30px; font-size: 0.8rem; color: #a0aec0; font-weight: 400; display: flex; align-items: center; gap: 8px; width: 40%; max-width: 500px; justify-content: center; border: 1px solid rgba(255,255,255,0.03);">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    https://dynmapa.cz
+                </div>
+                <!-- Pravá strana - indikátor plné obrazovky -->
+                <div style="font-size: 0.75rem; color: #718096; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">
+                    3D Render Engine v3.0
+                </div>
+            </div>
+
+            <!-- Samotné obří bezokrajové okno s mapou světa -->
+            <iframe 
+                src="https://dynmapa.cz/" 
+                style="width: 100%; height: 850px; border: none; display: block; background: #121318;" 
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
 
 </section>
