@@ -248,7 +248,7 @@
 <div id="itemy" style="text-align: center; margin: 40px 0 30px 0; scroll-margin-top: 50px;">
     <h2 style="color: #4CAF50; text-transform: uppercase; font-size: 2.8em; letter-spacing: 3px; font-weight: 950; margin-bottom: 25px; text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);">✨ VZÁCNÉ ITEMY SERVERU ✨</h2>
     
-    <!-- HLAVNÍ VYPÍNAČ POUZE PRO FILTRY RARIT -->
+    <!-- HLAVNÍ VYPÍNAČ PRO FILTRY I OBSAH -->
     <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleRarityFilters()">👁️ Zobrazit rarity</button>
     
     <!-- SKRYTÉ MENU S FILTRY S PLYNULÝM VYSUNUTÍM -->
@@ -263,32 +263,49 @@
     </div>
 </div>
 
+<!-- TENTO SPECIÁLNÍ OBAL DOČASN CO SCHOVÁ VŠECHNY TVÉ ITEMY (Až do kliknutí) -->
+<div id="full-items-wrapper" style="max-height: 0; opacity: 0; overflow: hidden; transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(20px) scale(0.98);">
+
 <script>
 function toggleRarityFilters() {
     const filterMenu = document.getElementById("hidden-filter-menu");
+    const itemsWrapper = document.getElementById("full-items-wrapper");
     const toggleBtn = document.getElementById("toggle-filter-btn");
 
-    if (!filterMenu || !toggleBtn) return;
+    if (!filterMenu || !itemsWrapper || !toggleBtn) return;
 
-    // Pokud jsou filtry zavřené, plynule je rozbalíme dolů
+    // Pokud je vše zavřené, rozbalíme filtry i položky najednou
     if (filterMenu.style.maxHeight === "0px" || filterMenu.style.maxHeight === "0" || !filterMenu.style.maxHeight) {
-        filterMenu.style.maxHeight = "200px"; // Dostatečná výška pro řadu tlačítek
+        
+        // 1. Rozbalení menu s barvami rarit
+        filterMenu.style.maxHeight = "200px";
         filterMenu.style.opacity = "1";
+        
+        // 2. Rozbalení samotného obsahu s itemy
+        itemsWrapper.style.maxHeight = "6000px"; // Bezpečné maximum pro zobrazení celého katalogu
+        itemsWrapper.style.opacity = "1";
+        itemsWrapper.style.transform = "translateY(0) scale(1)";
+        
         toggleBtn.innerHTML = "👁️ Skrýt rarity";
         
         // Jemný sjezd dolů pro dokonalé vycentrování otevřených tlačítek na displeji
         setTimeout(() => {
             filterMenu.scrollIntoView({ behavior: "smooth", block: "center" });
-        }, 100);
+        }, 120);
     } else {
-        // Pokud jsou otevřené, kliknutím je plynule zasuneme zpět
+        // Pokud je otevřené, kliknutím vše plynule zasuneme zpět do nuly
         filterMenu.style.maxHeight = "0";
         filterMenu.style.opacity = "0";
+        
+        itemsWrapper.style.maxHeight = "0";
+        itemsWrapper.style.opacity = "0";
+        itemsWrapper.style.transform = "translateY(20px) scale(0.98)";
+        
         toggleBtn.innerHTML = "👁️ Zobrazit rarity";
     }
 }
 
-// Oprava horního odkazu v menu, aby pouze plynule sjel dolů k sekci a nic neotvíral
+// Oprava horního odkazu v menu, aby pouze plynule sjel dolů k sekci a nic sám neotvíral
 document.addEventListener("DOMContentLoaded", function () {
     const itemyMenuLink = document.querySelector('a[href="#itemy"]');
     if (itemyMenuLink) {
