@@ -240,80 +240,80 @@
             </div>
         </section>
 
-        <!-- TLAČÍTKA PRO FILTROVÁNÍ RARIT -->
-            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
-                <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
-                <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
-                <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
-                <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
-                <button class="filter-btn" style="--btn-color: #8c8c8c;" onclick="filterItems('common')">⚪ Common</button>
+        <!-- NADPIS VZÁCNÉ ITEMY & ULTRA MODERNÍ ROZBALOVACÍ FILTRY -->
+            <div style="text-align: center; margin: 30px 0 40px 0;">
+                <p style="color: #cbd5e1; text-transform: uppercase; font-size: 0.9em; letter-spacing: 2px; font-weight: bold; margin-bottom: 15px;">✨ VZÁCNÉ ITEMY SERVERU ✨</p>
+                
+                <!-- HLAVNÍ PŘEPÍNACÍ TLAČÍTKO -->
+                <button id="toggle-filter-btn" class="main-toggle-btn" onclick="toggleFilterMenu()">👁️ Zobrazit rarity</button>
+                
+                <!-- SKRYTÉ MENU S FILTRY, KTERÉ SE FANCY VYSUNE -->
+                <div id="hidden-filter-menu" class="animated-filter-drawer">
+                    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; padding: 5px;">
+                        <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
+                        <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
+                        <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
+                        <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
+                        <button class="filter-btn" style="--btn-color: #8c8c8c;" onclick="filterItems('common')">⚪ Common</button>
+                    </div>
+                </div>
             </div>
 
-            <!-- NOVÉ STYLY PRO FANCY POHYBOVÉ ANIMACE A NEONOVÉ ZÁŘENÍ -->
+            <!-- CSS STYLY PRO PLYNULÉ VYSUNUTÍ MENU (GLASSMORPHISM) -->
             <style>
-                .filter-btn {
-                    background: rgba(255, 255, 255, 0.02);
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    color: #cbd5e1;
-                    padding: 10px 22px;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    font-size: 0.85em;
-                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                }
-                .filter-btn:hover {
-                    border-color: var(--btn-color, #4CAF50);
+                .main-toggle-btn {
+                    background: rgba(0, 128, 128, 0.05);
+                    border: 1px solid #008080;
                     color: #fff;
-                    background: rgba(255, 255, 255, 0.05);
+                    padding: 12px 28px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    font-size: 0.9em;
+                    letter-spacing: 1px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 4px 15px rgba(0, 128, 128, 0.15);
                 }
-                .filter-btn.active {
-                    background: var(--btn-color, #4CAF50);
-                    color: #000 !important;
-                    border-color: var(--btn-color, #4CAF50);
-                    box-shadow: 0 0 15px var(--btn-color, rgba(76, 175, 80, 0.4));
+                .main-toggle-btn:hover {
+                    background: rgba(0, 128, 128, 0.2);
+                    box-shadow: 0 4px 25px #008080;
+                    transform: translateY(-2px);
                 }
-                .filter-btn.active[style*="e74c3c"], .filter-btn.active[style*="8c8c8c"] { color: #fff !important; }
-
-                /* Pružný herní efekt otevírání a zvětšování karet */
-                .item-node {
-                    transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
-                                transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                .animated-filter-drawer {
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    transform: translateY(-15px) scale(0.98);
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 }
-                
-                @keyframes itemPopIn {
-                    0% { opacity: 0; transform: translateY(25px) scale(0.88); filter: blur(3px); }
-                    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+                .animated-filter-drawer.show-menu {
+                    max-height: 200px;
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
                 }
             </style>
 
-            <!-- JAVASCRIPT PRO ŽIVÉ FILTROVÁNÍ HODNOSTÍ -->
+            <!-- JAVASCRIPT PRO UKLÁDÁNÍ STAVU TLAČÍTKA -->
             <script>
-                function filterItems(rarity) {
-                    // Přepnutí svícení na aktivním tlačítku
-                    const buttons = document.querySelectorAll('.filter-btn');
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    event.target.classList.add('active');
-
-                    const items = document.querySelectorAll('.item-node');
-                    items.forEach(item => {
-                        item.style.animation = 'none';
-                        item.offsetHeight; // Reset herní animace
-
-                        if (rarity === 'all' || item.classList.contains(rarity)) {
-                            item.style.display = 'block';
-                            item.style.animation = 'itemPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(15px) scale(0.9)';
-                            setTimeout(() => { 
-                                if (!item.style.animation.includes('itemPopIn')) {
-                                    item.style.display = 'none'; 
-                                }
-                            }, 300);
-                        }
-                    });
+                function toggleFilterMenu() {
+                    const menu = document.getElementById('hidden-filter-menu');
+                    const btn = document.getElementById('toggle-filter-btn');
+                    
+                    // Přepnutí třídy pro spuštění animace pohybu dolů
+                    menu.classList.toggle('show-menu');
+                    
+                    if (menu.classList.contains('show-menu')) {
+                        btn.innerHTML = '❌ Skrýt rarity';
+                        btn.style.borderColor = '#e74c3c';
+                        btn.style.background = 'rgba(231, 76, 60, 0.05)';
+                        btn.style.boxShadow = '0 4px 15px rgba(231, 76, 60, 0.15)';
+                    } else {
+                        btn.innerHTML = '👁️ Zobrazit rarity';
+                        btn.style.borderColor = '#008080';
+                        btn.style.background = 'rgba(0, 128, 128, 0.05)';
+                        btn.style.boxShadow = '0 4px 15px rgba(0, 128, 128, 0.15)';
+                    }
                 }
             </script>
 
