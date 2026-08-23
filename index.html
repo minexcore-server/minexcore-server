@@ -240,55 +240,82 @@
             </div>
         </section>
 
-        <!-- SEKCE ITEMY S PŘESNÝM SEZNAMEM A FUNKČNÍMI FILTRY -->
-        <section id="itemy">
-            <div class="sec-desc">Katalog unikátního vybavení serveru</div>
-            <div class="sec-title">💎 Rarity & Custom Itemy</div>
-            <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 40px auto; font-size: 1.1em;">Kliknutím na jednotlivé herní třídy odemkneš truhly s předměty. Sleduj tu fancy animaci! ⚔️</p>
-            
-            <div class="fancy-accordion-wrapper" style="max-width: 1100px; margin: 0 auto; text-align: left;">
-
-                <!-- ================= TRUHLA: MYTHIC (🔴 REZAVÁ / ČERVENÁ) ================= -->
-                <details class="fancy-item-drawer mythic-drawer" style="margin-bottom: 20px;">
-                    <summary class="drawer-header" style="--glow-color: #e74c3c;">
-                        <span>🔴 MÝTICKÉ ARTEFAKTY (Mythic)</span>
-                    </summary>
-                    <div class="drawer-body">
-                        <div class="features-grid">
-                            <!-- 1. ITEM -->
-                            <div class="feature-card animated-item" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);">
-                                <h3 style="color: #e74c3c; margin-bottom: 5px;">🪓 Ničitelova sekera</h3>
-                                <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic</span>
-                                <p style="margin-top: 15px; color: #cbd5e1;">Zlověstná zbraň s mýtickou červenou aurou. Má schopnost drtit obranu nepřátel a při kritickém zásahu vyvolá ničivou tlakovou vlnu.</p>
-                            </div>
-                            <!-- 2. ITEM -->
-                            <div class="feature-card animated-item" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 15px rgba(231, 76, 60, 0.1);">
-                                <h3 style="color: #e74c3c; margin-bottom: 5px;">🔨 Drtič Hvězdné Pěny</h3>
-                                <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Mythic Palcát</span>
-                                <p style="margin-top: 15px; color: #cbd5e1;">Těžká mace s nestvůrnou útočnou silou. Čím delší pád na cíl provedeš, tím masivnější kinetické poškození nepříteli udělíš. Kolem zbraně navíc víří zářivě bílé jiskry.</p>
-                            </div>
-                        </div>
-                    </div>
-                </details>
+        <!-- TLAČÍTKA PRO FILTROVÁNÍ RARIT -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
+                <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
+                <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
+                <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
+                <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
+                <button class="filter-btn" style="--btn-color: #8c8c8c;" onclick="filterItems('common')">⚪ Common</button>
+            </div>
 
             <!-- NOVÉ STYLY PRO FANCY POHYBOVÉ ANIMACE A NEONOVÉ ZÁŘENÍ -->
             <style>
-                .fancy-item-drawer { background: rgba(18, 18, 22, 0.6); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s ease; }
-                .drawer-header { padding: 22px; font-weight: 900; font-size: 1.25em; cursor: pointer; user-select: none; background: rgba(0,0,0,0.3); border-bottom: 1px solid rgba(255,255,255,0.02); display: flex; justify-content: space-between; align-items: center; transition: all 0.3s ease; }
-                .drawer-header:hover { background: rgba(255, 255, 255, 0.02); color: var(--glow-color); box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), 0 0 15px var(--glow-color); }
-                .drawer-header::after { content: '▼'; font-size: 0.8em; color: var(--glow-color); transition: transform 0.4s ease; }
-                .fancy-item-drawer[open] .drawer-header::after { transform: rotate(-180deg); }
-                .drawer-body { padding: 30px; background: rgba(5, 5, 7, 0.4); border-top: 1px solid rgba(255,255,255,0.03); }
+                .filter-btn {
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: #cbd5e1;
+                    padding: 10px 22px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 0.85em;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                .filter-btn:hover {
+                    border-color: var(--btn-color, #4CAF50);
+                    color: #fff;
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                .filter-btn.active {
+                    background: var(--btn-color, #4CAF50);
+                    color: #000 !important;
+                    border-color: var(--btn-color, #4CAF50);
+                    box-shadow: 0 0 15px var(--btn-color, rgba(76, 175, 80, 0.4));
+                }
+                .filter-btn.active[style*="e74c3c"], .filter-btn.active[style*="8c8c8c"] { color: #fff !important; }
+
+                /* Pružný herní efekt otevírání a zvětšování karet */
+                .item-node {
+                    transition: opacity 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                                transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+                }
                 
-                /* Fancy animace otevření a vyskočení itemů */
-                @keyframes itemPop {
-                    0% { opacity: 0; transform: translateY(30px) scale(0.9); filter: blur(5px); }
+                @keyframes itemPopIn {
+                    0% { opacity: 0; transform: translateY(25px) scale(0.88); filter: blur(3px); }
                     100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
                 }
-                .fancy-item-drawer[open] .animated-item { animation: itemPop 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-                .fancy-item-drawer::-webkit-details-marker { display: none; }
-                summary::-webkit-details-marker { display: none; }
             </style>
+
+            <!-- JAVASCRIPT PRO ŽIVÉ FILTROVÁNÍ HODNOSTÍ -->
+            <script>
+                function filterItems(rarity) {
+                    // Přepnutí svícení na aktivním tlačítku
+                    const buttons = document.querySelectorAll('.filter-btn');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    event.target.classList.add('active');
+
+                    const items = document.querySelectorAll('.item-node');
+                    items.forEach(item => {
+                        item.style.animation = 'none';
+                        item.offsetHeight; // Reset herní animace
+
+                        if (rarity === 'all' || item.classList.contains(rarity)) {
+                            item.style.display = 'block';
+                            item.style.animation = 'itemPopIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards';
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(15px) scale(0.9)';
+                            setTimeout(() => { 
+                                if (!item.style.animation.includes('itemPopIn')) {
+                                    item.style.display = 'none'; 
+                                }
+                            }, 300);
+                        }
+                    });
+                }
+            </script>
 
                 <!-- MYTHIC: NIČITELOVA SEKERA -->
                 <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
