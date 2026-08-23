@@ -5,58 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚔️ MineXcore | Minecraft Server</title>
     <style>
-        :root { --primary: #4CAF50; --primary-glow: rgba(76, 175, 80, 0.25); --bg-dark: #070708; --bg-card: rgba(18, 18, 22, 0.95); --bg-nav: #0d0d10; --text-main: #ffffff; --text-muted: #cbd5e1; --border: rgba(255, 255, 255, 0.06); --border-hover: rgba(76, 175, 80, 0.4); }
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; background-color: var(--bg-dark); color: var(--text-main); scroll-behavior: smooth; overflow-x: hidden; }
-        .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: 800; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; letter-spacing: 1px; }
-        nav { background-color: var(--bg-nav); position: sticky; top: 0; z-index: 1000; padding: 18px 0; border-bottom: 1px solid var(--border); }
+        :root { --primary: #4CAF50; --bg-dark: #0a0a0a; --bg-card: #121212; --text-muted: #b3b3b3; --border: #1f1f1f; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; background-color: var(--bg-dark); color: #ffffff; scroll-behavior: smooth; }
+        .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: bold; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; }
+        nav { background-color: #121212; padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
         nav .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         nav .logo { font-weight: 900; font-size: 1.4em; letter-spacing: 2px; }
-        nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.85em; transition: color 0.3s; }
+        nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; }
         nav .menu a:hover { color: var(--primary); }
-        header { background: linear-gradient(180deg, rgba(20, 35, 20, 0.3) 0%, var(--bg-dark) 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
-        h1 { margin: 0; font-size: 4.5em; text-transform: uppercase; letter-spacing: 6px; font-weight: 950; text-shadow: 0 0 30px var(--primary-glow); }
-        .header-desc { color: var(--text-muted); font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; line-height: 1.6; }
+        header { background: linear-gradient(180deg, #142214 0%, #0a0a0a 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
+        header h1 { margin: 0; font-size: 4.5em; letter-spacing: 5px; font-weight: 900; }
+        header p { color: #cbd5e1; font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; }
         .btn-group { display: flex; justify-content: center; gap: 15px; }
-        .btn { padding: 14px 30px; border-radius: 6px; font-weight: 800; text-transform: uppercase; font-size: 0.85em; text-decoration: none; transition: transform 0.2s; }
-        .btn:hover { transform: translateY(-2px); }
-        .btn-main { background-color: var(--primary); color: #000; }
-        .btn-sub { color: #fff; border: 1px solid var(--border); background: rgba(255,255,255,0.01); }
-        .status-grid { max-width: 1000px; margin: -35px auto 60px auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 20px; gap: 20px; position: relative; z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        .btn { padding: 15px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; text-decoration: none; }
+        .btn-main { background-color: var(--primary); color: #000000; }
+        .btn-sub { color: #ffffff; border: 1px solid var(--border); }
+        .status-grid { max-width: 1000px; margin: -35px auto 60px auto; background: #121212; border: 1px solid var(--border); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 20px; gap: 20px; position: relative; z-index: 10; }
         .status-box { text-align: center; }
-        .status-box .title { color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px; }
+        .status-box .title { color: #cbd5e1; font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px; }
         .status-box .value { font-size: 1.25em; font-weight: bold; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; border-bottom: 1px solid var(--border); text-align: center; }
-        section:last-child { border-bottom: none; }
-        .sec-desc { color: #4CAF50; text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
+        .sec-desc { color: var(--primary); text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; font-weight: bold; }
         .sec-title { font-size: 2.2em; text-transform: uppercase; margin-bottom: 40px; font-weight: 900; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .feature-card { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 35px; text-align: left; transition: border-color 0.3s; }
-        .feature-card:hover { border-color: var(--border-hover); }
-        .feature-card h3 { margin: 0 0 12px 0; font-size: 1.4em; text-transform: uppercase; }
-        .feature-card p { color: var(--text-muted); margin: 0; line-height: 1.6; }
+        .feature-card { background-color: #121212; border: 1px solid var(--border); border-radius: 8px; padding: 35px; text-align: left; }
         .vote-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .vote-link { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 20px 40px; color: #ffffff; text-decoration: none; font-weight: bold; transition: border-color 0.3s; }
-        .vote-link:hover { border-color: var(--primary); }
+        .vote-link { background: #121212; border: 1px solid var(--border); border-radius: 6px; padding: 20px 40px; color: #ffffff; text-decoration: none; font-weight: bold; }
         .rules-wrapper { max-width: 800px; margin: 0 auto; text-align: left; }
-        details { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 15px; }
-        summary { padding: 20px; font-weight: bold; cursor: pointer; user-select: none; }
-        .rules-content { padding: 0 20px 20px 40px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 15px; }
-        .rules-content li { margin-bottom: 10px; }
+        details { background-color: #121212; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 15px; }
+        summary { padding: 20px; font-weight: bold; cursor: pointer; }
+        .rules-content { padding: 0 20px 20px 40px; color: #b3b3b3; border-top: 1px solid var(--border); padding-top: 15px; }
         .map-holder { width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000000; margin-top: 20px; }
         iframe { width: 100%; height: 650px; border: none; display: block; }
-        footer { background-color: #050505; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9em; }
+        footer { background-color: #050505; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: #b3b3b3; }
     </style>
 </head>
 <body>
-
-    <div class="vip-banner">
-        🎁 NOVÝ SERVER! DO 1.10.2026 ZÍSKÁ KAŽDÝ HRÁČ VIP ZDARMA JAKO DÁREK NA UVÍTANOU! 🎉
-    </div>
-
+    <div class="vip-banner">😎 SURVIVAL SERVER! DO 1.10.2026 KAŽDÝ ZÍSKÁ VIP PO PRVNÍM PŘIPOJENÍ JAKO DÁREK! 🎉</div>
     <nav>
         <div class="nav-container">
-            <div class="logo">💎 MINEXCORE</div>
+            <div class="logo">MINEXCORE</div>
             <div class="menu">
                 <a href="#domu">Úvod</a>
                 <a href="#novinky">Novinky</a>
@@ -69,25 +58,22 @@
             </div>
         </div>
     </nav>
-
     <header id="domu">
         <div style="color: var(--primary); text-transform: uppercase; letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">Minecraft Server · verze 1.21.x</div>
         <h1>MINEXCORE</h1>
-        <div class="header-desc">Poklidný survival server tvořený s poctivostí a láskou. Žádná přeplácanost, skvělá komunita a čistý herní zážitek přesně takový, jaký milujeme!</div>
+        <p>Pohodový a stabilní survival server stavěný pro skvělou herní komunitu. Objevujte světy, hrajte férově a staňte se součástí naší herní rodiny.</p>
         <div class="btn-group">
             <a href="#mapa" class="btn btn-main">🗺️ Živá Mapa</a>
             <a href="https://discord.gg" target="_blank" class="btn btn-sub">💬 Discord</a>
         </div>
     </header>
-
     <div class="status-grid">
-        <div class="status-box"><div class="title">🟢 Stav Serveru</div><div id="status-live" class="value" style="color: #4CAF50;">Načítám...</div></div>
-        <div class="status-box"><div class="title">📋 IP Adresa</div><div class="value" style="color: #4CAF50;">phantom.hostify.cz:50130</div></div>
-        <div class="status-box"><div class="title">⚙️ Verze hry</div><div class="value">1.21.1</div></div>
+        <div class="status-box"><div class="title">Stav Serveru</div><div id="status-live" class="value" style="color: #4CAF50;">Načítám...</div></div>
+        <div class="status-box"><div class="title">IP Adresa</div><div class="value" style="color: #4CAF50;">phantom.hostify.cz:50130</div></div>
+        <div class="status-box"><div class="title">Verze hry</div><div class="value">1.21.1</div></div>
     </div>
-
     <div class="container">
-
+<!-- SEKCE NOVINKY -->
         <section id="novinky">
             <div class="sec-desc">Aktualizace a zprávy</div>
             <div class="sec-title">🔥 Novinky ze serveru</div>
@@ -105,16 +91,18 @@
             </div>
         </section>
 
+        <!-- SEKCE FUNKCE -->
         <section id="funkce">
-            <div class="sec-desc">Jeden svět. Nekonečné možnosti.</div>
+            <div class="sec-desc">Nekonečné možnosti</div>
             <div class="sec-title">🏰 Herní funkce MineXcore</div>
             <div class="features-grid">
-                <div class="feature-card"><h3>🏝️ SkyBlock & OneBlock</h3><p>Uteč na oblohu. Postav si svůj ostrov nebo vyzkoušej výzvu přežití na jediném, měnícím se OneBlocku.</p></div>
-                <div class="feature-card"><h3>🌍 Svět Tectonic</h3><p>Zapomeň na nudnou krajinu. TECTONIC přináší masivní pohoří, plynulé kaňony a dechberoucí přírodu.</p></div>
-                <div class="feature-card"><h3>🏪 ChestShop & Aukce</h3><p>Obchoduj bezpečně. Vytvářej obchody skrze truhly (ChestShop) nebo prodávej věci v globálních aukcích.</p></div>
+                <div class="feature-card"><h3>🌍 Svět Tectonic</h3><p>Objevujte dechberoucí generaci krajiny s masivními horami a hlubokými kaňony.</p></div>
+                <div class="feature-card"><h3>🏝️ Minihry</h3><p>Vyzkoušejte si SkyBlock, oblíbený OneBlock nebo bojovou arénu s monstry.</p></div>
+                <div class="feature-card"><h3>🏪 Ekonomika</h3><p>Bezpečný obchod přes ChestShop v truhlách a bleskové globální aukce věcí.</p></div>
             </div>
         </section>
 
+        <!-- SEKCE ITEMY -->
         <section id="itemy">
             <div class="sec-desc">Katalog unikátního vybavení</div>
             <div class="sec-title">💎 Rarity & Custom Itemy</div>
@@ -126,3 +114,77 @@
                 </div>
                 <div class="feature-card" style="border-color: #9b59b6;">
                     <h3 style="color: #9b59b6; margin-bottom: 5px;">🗡️ Crystal Sword</h3>
+                    <span style="background: #9b59b6; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Epic</span>
+                    <p style="margin-top: 15px;">Krystalem kalená čepel navržená pro ty nejtěžší souboje s bossy.</p>
+                </div>
+            </div>
+        </section>
+        <!-- SEKCE SCOREBOARD / ŽEBŘÍČEK -->
+        <section id="zebricek">
+            <div class="sec-desc">Síň slávy a statistiky</div>
+            <div class="sec-title">🏆 Nejaktivnější Hráči (Playtime)</div>
+            <div class="feature-card" style="background-color: #121212; padding: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #1f1f1f; padding-bottom: 10px; font-weight: bold; color: #4CAF50;"><span>Pozice & Nick</span><span>Odehraný čas</span></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>🥇 1. Dartzz3666</span><span>142 hodin</span></div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>🥈 2. JULINKA64</span><span>98 hodin</span></div>
+                <div style="display: flex; justify-content: space-between;"><span>🥉 3. peto123451</span><span>74 hodin</span></div>
+            </div>
+        </section>
+
+        <!-- SEKCE HLASOVÁNÍ -->
+        <section id="hlasovani">
+            <div class="sec-desc">Podpoř náš server</div>
+            <div class="sec-title">🗳️ Hlasování pro server</div>
+            <div class="vote-row">
+                <a href="https://craftlist.cz" target="_blank" class="vote-link">Craftlist.cz HLASOVAT →</a>
+                <a href="https://minecraft-list.cz" target="_blank" class="vote-link">Minecraft-list.cz HLASOVAT →</a>
+            </div>
+        </section>
+                <!-- SEKCE PRAVIDLA -->
+        <section id="pravidla">
+            <div class="sec-desc">Základní kodex</div>
+            <div class="sec-title">📜 Pravidla serveru</div>
+            <div class="rules-wrapper">
+                <details><summary>🛡️ 1. CHOVÁNÍ — Respekt a slušné jednání</summary><div class="rules-content">Urážky, toxicita a provokace v chatu jsou přísně zakázány. Respektuj ostatní spoluhráče.</div></details>
+                <details><summary>⚔️ 2. FAIR PLAY — Hraj bez výhod</summary><div class="rules-content">Zákaz cheatů, hacků (X-ray) a zneužívání chyb hry. Nalezené bugy ihned nahlas týmu.</div></details>
+                <details><summary>🏠 3. STAVBY A MAJETEK — Zákaz griefování</summary><div class="rules-content">Nenič cizí stavby ani majetek. Griefing a krádeže truhlic jsou přísně zakázány. Zabezpeč si své projekty rezidencí.</div></details>
+            </div>
+        </section>
+
+        <!-- SEKCE MAPA -->
+        <section id="mapa">
+            <div class="sec-desc">Interaktivní přehled světa</div>
+            <div class="sec-title">🗺️ Živá 3D Dynmapa</div>
+            <div class="map-holder">
+                <iframe src="https://dynmapa.cz" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+        </section>
+
+    </div> <!-- Konec containeru -->
+
+    <footer>
+        <div class="logo">MINEXCORE</div>
+        <p>Objev. Získej. Ovládni. ⚔️</p>
+        <p>&copy; 2026 MineXcore. Všechna práva vyhrazena. Web běží bezplatně přes GitHub Pages.</p>
+    </footer>
+
+    <script>
+        async function checkStatus() {
+            try {
+                const res = await fetch('https://mcsrvstat.us');
+                const data = await res.json();
+                if(data && data.online) {
+                    document.getElementById('status-live').innerHTML = `● ONLINE (${data.players.online} / ${data.players.max})`;
+                } else {
+                    document.getElementById('status-live').innerHTML = `● OFFLINE`;
+                }
+            } catch(e) {
+                document.getElementById('status-live').innerHTML = `● ONLINE`;
+            }
+        }
+        checkStatus();
+        setInterval(checkStatus, 30000);
+    </script>
+
+</body>
+</html>
