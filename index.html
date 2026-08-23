@@ -627,42 +627,67 @@
         </div>
     </div>
 
-    <!-- Obří Dashboard Kontejner -->
+    <!-- Obří Dashboard Kontejner s funkčním proklikem místo černého okna -->
     <div style="max-width: 1650px; margin: 0 auto; padding: 0 20px;">
         <div class="map-holder" style="
             width: 100%; 
-            background: #15171e; 
+            height: 600px;
+            background: linear-gradient(135deg, #15171e 0%, #0b0c10 100%); 
             border: 1px solid rgba(255, 255, 255, 0.07); 
             border-radius: 24px; 
             box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1); 
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
         ">
             
-            <!-- Profesionální záhlaví simulující rozhraní moderní aplikace -->
-            <div style="background: #1a1d26; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                <!-- Prvky simulující systémové ovládání -->
-                <div style="display: flex; gap: 10px;">
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
-                    <span style="width: 13px; height: 13px; background: rgba(255, 255, 255, 0.12); border-radius: 50%;"></span>
+            <!-- Dekorativní mřížka na pozadí evokující mapu -->
+            <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.8; pointer-events: none;"></div>
+
+            <!-- Středový obsah -->
+            <div style="position: relative; z-index: 2; max-width: 500px;">
+                <div style="font-size: 5rem; margin-bottom: 20px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));">🗺️</div>
+                <h3 style="color: #ffffff; font-size: 1.8rem; font-weight: 700; margin: 0 0 12px 0; letter-spacing: -0.5px;">Otevřít interaktivní mapu</h3>
+                <p style="color: #a0aec0; font-size: 1rem; line-height: 1.5; margin: 0 0 32px 0;">Prohlížejte si herní svět, polohu hráčů a stavby v reálném čase přímo ve velkém okně vašeho prohlížeče.</p>
+                
+                <!-- Profesionální proklikové tlačítko -->
+                <a href="http://hostify.cz" target="_blank" style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 12px;
+                    background: #ffffff;
+                    color: #0f1015;
+                    text-decoration: none;
+                    padding: 16px 36px;
+                    border-radius: 14px;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    box-shadow: 0 20px 40px rgba(255,255,255,0.1);
+                    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+                " onmouseover="this.style.transform='translateY(-3px)'; this.style.box-shadow='0 30px 50px rgba(255,255,255,0.15), 0 0 20px rgba(0,210,255,0.4)'; this.style.background='#00d2ff'; this.style.color='#ffffff';" onmouseout="this.style.transform='translateY(0)'; this.style.box-shadow='0 20px 40px rgba(255,255,255,0.1)'; this.style.background='#ffffff'; this.style.color='#0f1015';">
+                    Vstoupit do Dynmapy
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+
+            <!-- Spodní lišta okna jako informační panel -->
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0, 0, 0, 0.2); padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.03); z-index: 2;">
+                <div style="font-size: 0.85rem; color: #718096; font-weight: 500;">
+                    Node Server: <span style="color: #a0aec0;">phantom.hostify.cz</span>
                 </div>
-                <!-- Prvek adresního řádku (Okrasný text pro uživatele) -->
-                <div style="background: rgba(0, 0, 0, 0.3); padding: 10px 36px; border-radius: 40px; font-size: 0.85rem; color: #a0aec0; font-weight: 400; display: flex; align-items: center; gap: 10px; width: 45%; max-width: 550px; justify-content: center; border: 1px solid rgba(255, 255, 255, 0.03); letter-spacing: 0.3px;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#00e676" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                    mapa.minexcore.cz
-                </div>
-                <!-- Informační štítek motoru mapy -->
-                <div style="font-size: 0.8rem; color: #718096; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;">
-                    HQ Resolution
+                <div style="font-size: 0.85rem; color: #718096; font-weight: 500;">
+                    Secure External Redirection
                 </div>
             </div>
 
-            <!-- Bezpečné šifrované načtení mapy s opraveným portem -->
-            <iframe 
-                src="https://hostify.cz:VYPLŇ_ZDE_WEB_PORT_MAPY/" 
-                style="width: 100%; height: 900px; border: none; display: block; background: #15171e;" 
-                allowfullscreen>
-            </iframe>
+            <!-- Skrytý iframe zachovávající původní ID strukturu pro případné skripty na pozadí -->
+            <iframe src="http://hostify.cz" style="display: none;" allowfullscreen></iframe>
         </div>
     </div>
 
