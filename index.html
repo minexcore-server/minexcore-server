@@ -5,88 +5,250 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MineXcore | Oficiální Web</title>
     <style>
-        /* Moderní tmavý herní design */
+        /* Moderní herní design MineXcore */
+        :root {
+            --primary: #4CAF50;
+            --primary-hover: #45a049;
+            --bg-dark: #121212;
+            --bg-card: #1c1c1c;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #141414;
-            color: #f5f5f5;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             text-align: center;
+            scroll-behavior: smooth;
         }
+
+        /* Navigační menu */
+        nav {
+            background-color: #1a1a1a;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 2px solid #2d2d2d;
+        }
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hlavička webu */
         header {
-            background-color: #1f1f1f;
-            padding: 40px 20px;
-            border-bottom: 4px solid #4CAF50;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('pozadi.png') no-repeat center center/cover;
+            padding: 60px 20px;
+            border-bottom: 4px solid var(--primary);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
+
+        /* Styl pro vaše logo */
+        .server-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.5));
+        }
+
         h1 {
             margin: 0;
-            font-size: 2.8em;
-            color: #4CAF50;
+            font-size: 3em;
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
         }
+
         .ip-box {
-            background: #2a2a2a;
+            background: #252525;
             display: inline-block;
-            padding: 12px 25px;
+            padding: 12px 30px;
             margin-top: 20px;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 1.1em;
-            border: 1px solid #444;
+            font-size: 1.2em;
+            border: 1px solid #333;
             color: #85e388;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
+
+        /* Hlavní obsah */
         .container {
-            padding: 40px 20px;
-            max-width: 1200px;
+            padding: 60px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
+
+        section {
+            margin-bottom: 60px;
+            padding-top: 40px;
+        }
+
         h2 {
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #aaa;
+            font-size: 2.2em;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 5px;
             margin-bottom: 30px;
+            text-transform: uppercase;
         }
-        /* Kontejner pro živou Dynmapu */
+
+        /* Sekce Pravidla */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+
+        .rule-card {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .rule-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.3em;
+        }
+
+        .rule-card ol {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .rule-card li {
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+
+        /* Tlačítka a odkazy */
+        .btn-discord {
+            background-color: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .btn-discord:hover {
+            background-color: #4752C4;
+        }
+
+        /* Kontejner pro Dynmapu */
         .map-wrapper {
             position: relative;
             width: 100%;
-            border: 3px solid #4CAF50;
+            border: 3px solid var(--primary);
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.7);
             overflow: hidden;
             background: #000;
         }
+
         iframe {
             width: 100%;
-            height: 750px; /* Výška mapy na stránce */
+            height: 700px;
             border: none;
             display: block;
+        }
+
+        footer {
+            background-color: #0a0a0a;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9em;
+            border-top: 1px solid #1c1c1c;
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav>
+        <a href="#domu">Domů</a>
+        <a href="#pravidla">Pravidla</a>
+        <a href="#mapa">3D Mapa</a>
+    </nav>
+
+    <header id="domu">
+        <!-- ZDE JE PŘÍPRAVA PRO VAŠE LOGO (logo.png) -->
+        <img src="logo.png" alt="MineXcore Logo" class="server-logo" onerror="this.style.display='none'">
         <h1>MineXcore</h1>
-        <!-- Zde si přepište IP adresu, až ji budete mít -->
-        <div class="ip-box">IP adresa: play.minexcore.cz</div>
+        <div class="ip-box">IP: phantom.hostify.cz:50130</div>
     </header>
 
     <div class="container">
-        <h2>Živá 3D Dynmapa světa</h2>
-        <p>Sledujte stavby, prozkoumané území a polohu hráčů v reálném čase přímo z našeho webu.</p>
         
-        <div class="map-wrapper">
-            <!-- Vaše Dynmapa vložená přímo do těla webu -->
-            <iframe src="https://minexcore.dynmapa.cz/"></iframe>
-        </div>
+        <!-- SEKCE PRAVIDLA -->
+        <section id="pravidla">
+            <h2>Pravidla Serveru</h2>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>General</h3>
+                    <ol>
+                        <li>Chovejte se k ostatním hráčům slušně a s respektem.</li>
+                        <li>Je přísně zakázáno jakékoliv urážení, toxicita nebo rasismus v chatu.</li>
+                        <li>Nenabízejte ani nepropagujte cizí Minecraft servery.</li>
+                    </ol>
+                </div>
+                <div class="rule-card">
+                    <h3>Hra a Svět</h3>
+                    <ol>
+                        <li>Zákaz jakéhokoliv cheatování (X-ray, FlyHack, Killaura apod.).</li>
+                        <li>Neničte stavby ostatních hráčů (přísný zákaz griefování).</li>
+                        <li>Nevykrádejte cizí truhly a pozemky, i když nejsou zamčené.</li>
+                    </ol>
+                </div>
+                <div class="rule-card">
+                    <h3>Technické</h3>
+                    <ol>
+                        <li>Zákaz záměrného lagování serveru (např. obří nefunkční redstone obvody).</li>
+                        <li>Nezneužívejte chyby a bugy ve hře, raději je nahlaste admin týmu.</li>
+                        <li>Každý hráč je zodpovědný za zabezpečení svého účtu.</li>
+                    </ol>
+                </div>
+            </div>
+            <p style="margin-top: 30px;">Našli jste porušení pravidel? Nahlaste to na našem Discordu.</p>
+            <a href="VASE_POZVANKA_NA_DISCORD" target="_blank" class="btn-discord">Připojit se na Discord</a>
+        </section>
+
+        <!-- SEKCE MAPA -->
+        <section id="mapa">
+            <h2>Živá 3D Dynmapa</h2>
+            <p>Sledujte stavby a polohu hráčů v reálném čase.</p>
+            <div class="map-wrapper">
+                <iframe src="https://dynmapa.cz"></iframe>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        &copy; 2026 MineXcore. Všechna práva vyhrazena. Web běží bezplatně na GitHub Pages.
+    </footer>
 
 </body>
 </html>
