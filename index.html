@@ -5,25 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚔️ MineXcore | Minecraft Server</title>
     <style>
-        :root { 
-            --primary: #4CAF50; 
-            --primary-glow: rgba(76, 175, 80, 0.25); 
-            --bg-dark: #0a0a0a; 
-            --bg-card: rgba(18, 18, 22, 0.95); 
-            --text-muted: #b3b3b3; 
-            --border: #1f1f1f; 
-        }
+        :root { --primary: #4CAF50; --primary-glow: rgba(76, 175, 80, 0.25); --bg-dark: #0a0a0a; --bg-card: rgba(18, 18, 22, 0.95); --text-muted: #b3b3b3; --border: #1f1f1f; }
         
-        /* 100% BEZPEČNÉ LOKÁLNÍ NAČTENÍ VAŠEHO OBRÁZKU POZADI.PNG */
+        /* OBRÁZEK ZAPSÁN PŘÍMO V KÓDU PRO 100% FUNKČNOST */
         body { 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; 
             background: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.93)), 
-                        url('pozadi.png') no-repeat center center fixed/cover;
-            color: #ffffff; 
-            scroll-behavior: smooth; 
-            overflow-x: hidden; 
+                        url('https://r2.dev') no-repeat center center fixed/cover;
+            color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; 
         }
         
         .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: bold; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; letter-spacing: 1px; }
@@ -33,7 +22,8 @@
         nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; transition: color 0.3s; }
         nav .menu a:hover { color: var(--primary); }
         
-        header { background: linear-gradient(180deg, rgba(20, 34, 20, 0.2) 0%, rgba(10, 10, 10, 0.4) 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
+        /* PRŮHLEDNÁ HLAVIČKA PRO DOKONALÝ VZHLED */
+        header { background: transparent; padding: 120px 20px; text-align: center; border-bottom: 1px solid var(--border); }
         header h1 { margin: 0; font-size: 4.5em; letter-spacing: 5px; font-weight: 900; text-shadow: 0 0 25px rgba(0,0,0,0.9); }
         header p { color: #cbd5e1; font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
         
@@ -103,7 +93,7 @@
     <header id="domu">
         <div class="sub" style="color: var(--primary); text-transform: uppercase; letter-spacing: 5px; font-weight: bold; margin-bottom: 10px;">Minecraft Server · verze 1.21.x</div>
         <h1>MINEXCORE</h1>
-        <p>Už dlouho jsem chtěl vytvořit poklidný survival server, který nabídne styl hraní, pohodu a komunitu jako když jsme hru hráli poprvé. Server je jednoduchý a na tom mi záleží.</p>
+        <p>Na jednoduchosti záleží.</p>
         <div class="btn-group">
             <a href="#mapa" class="btn btn-main">🗺️ Živá Mapa</a>
             <a href="https://discord.gg" target="_blank" class="btn btn-sub">💬 Discord</a>
@@ -112,7 +102,7 @@
 
     <div class="status-grid">
         <div class="status-box"><div class="title">Stav Serveru</div><div id="status-live" class="value" style="color: #4CAF50;">Načítám...</div></div>
-        <div class="status-box"><div class="title">IP Adresa</div><div class="value" style="color: #4CAF50; font-size: 1.05em;">phantom.hostify.cz:50130</div></div>
+        <div class="status-grid-item" style="text-align: center;"><div style="color: #cbd5e1; font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px;">📋 IP Adresa</div><div class="value" style="color: #4CAF50; font-weight: bold; font-size: 1.25em;">phantom.hostify.cz:50130</div></div>
         <div class="status-box"><div class="title">Verze hry</div><div class="value">1.21.1</div></div>
     </div>
 
