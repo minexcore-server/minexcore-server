@@ -5,51 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚔️ MineXcore | Minecraft Server</title>
     <style>
-        :root { --primary: #4CAF50; --bg-dark: #070708; --bg-card: rgba(18, 18, 22, 0.95); --bg-nav: #0d0d10; --text-muted: #cbd5e1; --border: rgba(255, 255, 255, 0.06); --border-hover: rgba(76, 175, 80, 0.4); }
+        /* Definice barev inspirovaná webem Outlands */
+        :root { 
+            --primary: #4CAF50; 
+            --primary-glow: rgba(76, 175, 80, 0.25); 
+            --bg-dark: #0a0a0a; 
+            --bg-card: rgba(18, 18, 22, 0.95); 
+            --text-muted: #b3b3b3; 
+            --border: #1f1f1f; 
+        }
+        
+        /* VAŠE FOTKA NA CELÉM POZADÍ S TMAVÝM FILTREM */
         body { 
             margin: 0; 
             padding: 0; 
             font-family: 'Segoe UI', Roboto, sans-serif; 
-            background: linear-gradient(rgba(7, 7, 10, 0.88), rgba(7, 7, 10, 0.94)), url('pozadi.png') no-repeat center center fixed/cover;
+            background: linear-gradient(rgba(10, 10, 12, 0.85), rgba(10, 10, 12, 0.93)), 
+                        url('https://ibb.co') no-repeat center center fixed/cover;
             color: #ffffff; 
             scroll-behavior: smooth; 
             overflow-x: hidden; 
         }
-        .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: 800; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; letter-spacing: 1px; }
-        nav { background-color: var(--bg-nav); position: sticky; top: 0; z-index: 1000; padding: 18px 0; border-bottom: 1px solid var(--border); }
+        
+        .vip-banner { background: linear-gradient(90deg, #d4af37, #4CAF50); color: #000; font-weight: bold; padding: 12px; text-align: center; text-transform: uppercase; font-size: 0.95em; letter-spacing: 1px; }
+        nav { background-color: #121212; padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
         nav .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
         nav .logo { font-weight: 900; font-size: 1.4em; letter-spacing: 2px; }
-        nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-weight: 700; text-transform: uppercase; font-size: 0.85em; transition: color 0.3s; }
+        nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; transition: color 0.3s; }
         nav .menu a:hover { color: var(--primary); }
-        header { background: linear-gradient(180deg, rgba(20, 35, 20, 0.3) 0%, var(--bg-dark) 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
-        h1 { margin: 0; font-size: 4.5em; text-transform: uppercase; letter-spacing: 6px; font-weight: 950; }
-        .header-desc { color: var(--text-muted); font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; line-height: 1.6; }
+        
+        /* Průhledná hlavička, která nechá vyniknout hrad na pozadí */
+        header { background: linear-gradient(180deg, rgba(20, 34, 20, 0.2) 0%, rgba(10, 10, 10, 0.4) 100%); padding: 100px 20px; text-align: center; border-bottom: 1px solid var(--border); }
+        header h1 { margin: 0; font-size: 4.5em; letter-spacing: 5px; font-weight: 900; text-shadow: 0 0 25px rgba(0,0,0,0.9); }
+        header p { color: #cbd5e1; font-size: 1.2em; max-width: 700px; margin: 20px auto 40px auto; line-height: 1.6; text-shadow: 0 2px 4px rgba(0,0,0,0.8); }
+        
         .btn-group { display: flex; justify-content: center; gap: 15px; }
-        .btn { padding: 14px 30px; border-radius: 6px; font-weight: 800; text-transform: uppercase; font-size: 0.85em; text-decoration: none; transition: transform 0.2s; }
+        .btn { padding: 15px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; text-decoration: none; transition: transform 0.2s; }
         .btn:hover { transform: translateY(-2px); }
-        .btn-main { background-color: var(--primary); color: #000; }
-        .btn-sub { color: #fff; border: 1px solid var(--border); background: rgba(255,255,255,0.01); }
-        .status-grid { max-width: 1000px; margin: -35px auto 60px auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 20px; gap: 20px; position: relative; z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+        .btn-main { background-color: var(--primary); color: #000000; box-shadow: 0 4px 15px var(--primary-glow); }
+        .btn-main:hover { box-shadow: 0 4px 25px var(--primary); }
+        .btn-sub { color: #ffffff; border: 1px solid var(--border); background-color: rgba(0,0,0,0.4); backdrop-filter: blur(5px); }
+        .btn-sub:hover { background-color: rgba(0,0,0,0.7); }
+        
+        .status-grid { max-width: 1000px; margin: -35px auto 60px auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 20px; gap: 20px; position: relative; z-index: 10; box-shadow: 0 15px 30px rgba(0,0,0,0.7); }
         .status-box { text-align: center; }
-        .status-box .title { color: var(--text-muted); font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px; }
+        .status-box .title { color: #cbd5e1; font-size: 0.8em; text-transform: uppercase; margin-bottom: 5px; }
         .status-box .value { font-size: 1.25em; font-weight: bold; }
+        
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; border-bottom: 1px solid var(--border); text-align: center; }
+        section:last-child { border-bottom: none; }
         .sec-desc { color: #4CAF50; text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold; }
-        .sec-title { font-size: 2.2em; text-transform: uppercase; margin-bottom: 40px; font-weight: 900; }
+        .sec-title { font-size: 2.2em; text-transform: uppercase; margin-bottom: 40px; font-weight: 900; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .feature-card { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 35px; text-align: left; transition: border-color 0.3s; }
-        .feature-card:hover { border-color: var(--border-hover); }
-        .feature-card h3 { margin: 0 0 12px 0; font-size: 1.4em; text-transform: uppercase; }
-        .feature-card p { color: var(--text-muted); margin: 0; line-height: 1.6; }
+        .feature-card { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 35px; text-align: left; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .feature-card:hover { border-color: #4CAF50; transform: translateY(-3px); }
+        .feature-card h3 { margin: 0 0 12px 0; font-size: 1.4em; text-transform: uppercase; color: var(--primary); }
+        .feature-card p { color: #cbd5e1; margin: 0; line-height: 1.6; }
+        
         .vote-row { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .vote-link { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 20px 40px; color: #ffffff; text-decoration: none; font-weight: bold; transition: border-color 0.3s; }
-        .vote-link:hover { border-color: var(--primary); }
+        .vote-link { background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 20px 40px; color: #ffffff; text-decoration: none; font-weight: bold; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .vote-link:hover { border-color: var(--primary); transform: translateY(-2px); }
+        
         .rules-wrapper { max-width: 800px; margin: 0 auto; text-align: left; }
-        details { background-color: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; margin-bottom: 15px; }
+        details { background-color: var(--bg-card); border: 1px solid #1f1f1f; border-radius: 6px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         summary { padding: 20px; font-weight: bold; cursor: pointer; user-select: none; }
-        .rules-content { padding: 0 20px 20px 40px; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 15px; }
-        .map-holder { width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000000; margin-top: 20px; }
+        summary:hover { color: var(--primary); }
+        .rules-content { padding: 0 20px 20px 40px; color: #cbd5e1; border-top: 1px solid #1f1f1f; padding-top: 15px; }
+        .rules-content li { margin-bottom: 10px; }
+        
+        .map-holder { width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000000; margin-top: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); }
         iframe { width: 100%; height: 650px; border: none; display: block; }
         footer { background-color: #050505; padding: 40px 20px; text-align: center; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9em; }
     </style>
