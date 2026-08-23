@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineXcore | Oficiální Web</title>
+    <style>
+        /* Moderní tmavý herní design */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #141414;
+            color: #f5f5f5;
+            text-align: center;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 40px 20px;
+            border-bottom: 4px solid #4CAF50;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            color: #4CAF50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .ip-box {
+            background: #2a2a2a;
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: 1px solid #444;
+            color: #85e388;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        /* Kontejner pro živou Dynmapu */
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            border: 3px solid #4CAF50;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            overflow: hidden;
+            background: #000;
+        }
+        iframe {
+            width: 100%;
+            height: 750px; /* Výška mapy na stránce */
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MineXcore</h1>
+        <!-- Zde si přepište IP adresu, až ji budete mít -->
+        <div class="ip-box">IP adresa: play.minexcore.cz</div>
+    </header>
+
+    <div class="container">
+        <h2>Živá 3D Dynmapa světa</h2>
+        <p>Sledujte stavby, prozkoumané území a polohu hráčů v reálném čase přímo z našeho webu.</p>
+        
+        <div class="map-wrapper">
+            <!-- Vaše Dynmapa vložená přímo do těla webu -->
+            <iframe src="https://minexcore.dynmapa.cz/"></iframe>
+        </div>
+    </div>
+
+</body>
+</html>
