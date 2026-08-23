@@ -604,17 +604,60 @@
         </section>
 
         <!-- SEKCE MAPA -->
-<section id="mapa" style="width: 100%; padding: 20px; box-sizing: border-box;">
-    <div class="sec-desc">Interaktivní přehled světa</div>
-    <div class="sec-title">🗺️ Živá 3D Dynmapa</div>
-    <div class="map-holder" style="width: 100%; max-width: 1400px; margin: 0 auto;">
+<section id="mapa" style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 40px 20px; font-family: sans-serif; box-sizing: border-box;">
+    
+    <!-- Moderní minimalistické záhlaví sekce -->
+    <div style="text-align: center; margin-bottom: 25px;">
+        <div class="sec-desc" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 5px;">Interaktivní přehled světa</div>
+        <div class="sec-title" style="font-size: 2.2rem; font-weight: bold; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">🗺️ Živá 3D Dynmapa</div>
+    </div>
+
+    <!-- Luxusní herní okno (Card Container) -->
+    <div class="map-holder" style="
+        width: 100%; 
+        background: #1e1e24; 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        border-radius: 16px; 
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05); 
+        overflow: hidden; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    " onmouseover="this.style.transform='translateY(-4px)'; this.style.box-shadow='0 25px 50px rgba(0, 0, 0, 0.6), 0 0 15px rgba(90, 200, 250, 0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.box-shadow='0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05)';">
+        
+        <!-- Horní lišta okna evokující aplikaci/hru -->
+        <div style="background: #16161a; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <!-- Tři barevné body jako u macOS/prohlížeče -->
+            <div style="display: flex; gap: 8px;">
+                <span style="width: 11px; height: 11px; background: #ff5f56; border-radius: 50%;"></span>
+                <span style="width: 11px; height: 11px; background: #ffbd2e; border-radius: 50%;"></span>
+                <span style="width: 11px; height: 11px; background: #27c93f; border-radius: 50%;"></span>
+            </div>
+            <!-- Status a nápis uprostřed -->
+            <div style="font-size: 0.85rem; color: #aaa; font-weight: 500; display: flex; align-items: center; gap: 6px;">
+                <span style="width: 8px; height: 8px; background: #27c93f; border-radius: 50%; display: inline-block; animation: pulse 2s infinite;"></span>
+                minexcore.dynmapa.cz
+            </div>
+            <!-- Prázdný prvek pro vyvážení flexboxu -->
+            <div style="width: 42px;"></div>
+        </div>
+
+        <!-- Samotné tělo mapy -->
         <iframe 
-            src="https://minexcore.dynmapa.cz/" 
-            style="width: 100%; height: 650px; border: 2px solid #ccc; border-radius: 12px;" 
+            src="https://dynmapa.cz" 
+            style="width: 100%; height: 680px; border: none; display: block;" 
             allowfullscreen>
         </iframe>
     </div>
+
 </section>
+
+<!-- Pomocná animace blikání zeleného bodu statusu online -->
+<style>
+@keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 8px #27c93f; }
+    100% { transform: scale(0.95); opacity: 0.5; }
+}
+</style>
 
     </div> <!-- Konec containeru -->
 
