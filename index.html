@@ -82,11 +82,10 @@
             text-shadow: 0 0 8px var(--primary-glow);
         }
 
-        /* Hero Sekce */
+        /* OPRAVENÁ Hero Sekce - Používá čistý CSS přechod bez externích obrázků */
         header {
             position: relative;
-            background: linear-gradient(rgba(7, 7, 8, 0.3), rgba(7, 7, 8, 0.98)), 
-                        url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(180deg, rgba(22, 35, 23, 0.4) 0%, rgba(7, 7, 8, 0.98) 100%);
             padding: 160px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border);
@@ -319,3 +318,5 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
