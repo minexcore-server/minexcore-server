@@ -240,54 +240,99 @@
             </div>
         </section>
 
-        <!-- SEKCE ITEMY -->
+        <!-- SEKCE ITEMY S PŘESNÝM SEZNAMEM A FUNKČNÍMI FILTRY -->
         <section id="itemy">
             <div class="sec-desc">Katalog unikátního vybavení serveru</div>
             <div class="sec-title">💎 Rarity & Custom Itemy</div>
-            <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 40px auto; font-size: 1.1em;">Objevuj speciální zbraně a zbroje s unikátními vlastnostmi, které ti pomohou v boji proti nejtemnějším monstrům.</p>
+            <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 30px auto; font-size: 1.1em;">Vyfiltruj si speciální zbraně, nástroje a zbroje podle jejich vzácnosti a objev jejich magické vlastnosti! ⚔️</p>
             
-            <div class="features-grid">
-                <!-- KARTA: NIČITELOVA SEKERA -->
-                <div class="feature-card" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1);">
+            <!-- TLAČÍTKA PRO FILTROVÁNÍ -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;">
+                <button class="filter-btn active" onclick="filterItems('all')">👁️ Všechny</button>
+                <button class="filter-btn" style="--btn-color: #e74c3c;" onclick="filterItems('mythic')">🔴 Mythic</button>
+                <button class="filter-btn" style="--btn-color: #d4af37;" onclick="filterItems('legendary')">🟡 Legendary</button>
+                <button class="filter-btn" style="--btn-color: #3498db;" onclick="filterItems('rare')">🔵 Rare</button>
+            </div>
+
+            <div class="features-grid" id="items-container">
+                <!-- MYTHIC: NIČITELOVA SEKERA -->
+                <div class="feature-card item-node mythic" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(231, 76, 60, 0.05) 100%); border-color: #e74c3c; box-shadow: 0 0 20px rgba(231, 76, 60, 0.1); transition: all 0.3s ease;">
                     <h3 style="color: #e74c3c; margin-bottom: 5px;">🪓 Ničitelova sekera</h3>
                     <span style="background: #e74c3c; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Mythic</span>
                     <p style="margin-top: 15px; color: #cbd5e1;">Zlověstná zbraň s mýtickou červenou aurou. Má schopnost drtit obranu nepřátel a při kritickém zásahu vyvolá ničivou tlakovou vlnu.</p>
                 </div>
 
-                <!-- KARTA: AZGAROTHOV MEČ -->
-                <div class="feature-card" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);">
+                <!-- LEGENDARY: AZGAROTHOV MEČ -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
                     <h3 style="color: #d4af37; margin-bottom: 5px;">🗡️ Azgarothův meč</h3>
                     <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Legendary</span>
                     <p style="margin-top: 15px; color: #cbd5e1;">Legendární zbraň ukovaná z čistého zla s magickou esencí. Způsobuje devastující poškození všem bossům a nepřátelům v herním světě.</p>
                 </div>
 
-                <!-- KARTA: AZGAROTHOVO BRNĚNÍ -->
-                <div class="feature-card" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);">
+                <!-- LEGENDARY: AZGAROTHOVO BRNĚNÍ -->
+                <div class="feature-card item-node legendary" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(212, 175, 55, 0.05) 100%); border-color: #d4af37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.1); transition: all 0.3s ease;">
                     <h3 style="color: #d4af37; margin-bottom: 5px;">🛡️ Azgarothovo brnění</h3>
                     <span style="background: #d4af37; color: #000; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px;">Legendary</span>
                     <p style="margin-top: 15px; color: #cbd5e1;">Mocná zbroj, která padá jako vzácná kořist z obávaného bosse **Azgarotha**. Svému nositeli propůjčuje permanentní obří sílu a extrémní odolnost.</p>
                 </div>
 
-                <!-- KARTA: SMELTER PICKAXE -->
-                <div class="feature-card" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db;">
+                <!-- RARE: SMELTER PICKAXE -->
+                <div class="feature-card item-node rare" style="background: linear-gradient(135deg, rgba(18,18,22,0.95) 0%, rgba(52, 152, 219, 0.03) 100%); border-color: #3498db; transition: all 0.3s ease;">
                     <h3 style="color: #3498db; margin-bottom: 5px;">⛏️ Smelter Pickaxe</h3>
                     <span style="background: #3498db; color: #fff; font-size: 0.75em; padding: 2px 6px; font-weight: bold; border-radius: 4px; text-transform: uppercase;">Rare</span>
                     <p style="margin-top: 15px; color: #cbd5e1;">Vzácný krumpáč se zabudovaným kouzlem, které automaticky upeče každou vytěženou rudu železa či zlata přímo za běhu.</p>
                 </div>
             </div>
-        </section>
-        <!-- SEKCE SCOREBOARD / ŽEBŘÍČEK -->
-        <section id="zebricek">
-            <div class="sec-desc">Síň slávy a statistiky</div>
-            <div class="sec-title">🏆 Nejaktivnější Hráči (Playtime)</div>
-            <div class="feature-card" style="background-color: #121212; padding: 20px;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #1f1f1f; padding-bottom: 10px; font-weight: bold; color: #4CAF50;"><span>Pozice & Nick</span><span>Odehraný čas</span></div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>🥇 1. Skrim27</span><span>142 hodin</span></div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;"><span>🥈 2. JULINKA64</span><span>98 hodin</span></div>
-                <div style="display: flex; justify-content: space-between;"><span>🥉 3. peto123451</span><span>74 hodin</span></div>
-            </div>
-        </section>
 
+            <!-- GRAFIKA PRO FILTROVACÍ TLAČÍTKA -->
+            <style>
+                .filter-btn {
+                    background: rgba(255, 255, 255, 0.02);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    color: #cbd5e1;
+                    padding: 10px 22px;
+                    border-radius: 6px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 0.85em;
+                    transition: all 0.3s ease;
+                }
+                .filter-btn:hover {
+                    border-color: var(--btn-color, #4CAF50);
+                    color: #fff;
+                    background: rgba(255, 255, 255, 0.05);
+                }
+                .filter-btn.active {
+                    background: var(--btn-color, #4CAF50);
+                    color: #000 !important;
+                    border-color: var(--btn-color, #4CAF50);
+                    box-shadow: 0 0 15px var(--btn-color, rgba(76, 175, 80, 0.4));
+                }
+                .filter-btn.active[style*="e74c3c"] { color: #fff !important; }
+            </style>
+
+            <!-- JAVASCRIPT LOGIKA PRO SKRÝVÁNÍ KARET -->
+            <script>
+                function filterItems(rarity) {
+                    const buttons = document.querySelectorAll('.filter-btn');
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    event.target.classList.add('active');
+
+                    const items = document.querySelectorAll('.item-node');
+                    items.forEach(item => {
+                        if (rarity === 'all' || item.classList.contains(rarity)) {
+                            item.style.display = 'block';
+                            setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.8)';
+                            setTimeout(() => { item.style.display = 'none'; }, 300);
+                        }
+                    });
+                }
+            </script>
+        </section>
         <!-- SEKCE HLASOVÁNÍ -->
         <section id="hlasovani">
             <div class="sec-desc">Podpoř náš server</div>
