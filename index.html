@@ -463,6 +463,102 @@
 
             </div> <!-- KONEC OBALU FULL-ITEMS-WRAPPER, KTERÝ ZAVÍRÁ TVÝCH 28 ITEMŮ -->
 
+            <!-- ČISTÁ SEKCE ŽEBŘÍČKU (Můžeš vložit kamkoliv do těla webu) -->
+<section id="zebricek" style="
+    width: 100%; 
+    max-width: 1550px; 
+    margin: 0 auto; 
+    padding: 0 24px; 
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+    box-sizing: border-box;
+    /* Skryto pro efekt rozbalení */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease, padding 0.5s ease;
+">
+    
+    <div style="border-left: 5px solid #ffbd2e; padding-left: 24px; margin-bottom: 45px; text-align: left; margin-top: 40px;">
+        <div class="sec-desc" style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: #ffbd2e; margin-bottom: 8px;">Statistiky herní aktivity</div>
+        <div class="sec-title" style="
+            font-size: 3.4rem; 
+            font-weight: 900; 
+            color: #ffffff; 
+            letter-spacing: -1.5px; 
+            margin: 0;
+            line-height: 1.05;
+            background: linear-gradient(180deg, #ffffff 40%, #a0aec0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        ">🏆 Žebříček Playtime</div>
+    </div>
+
+    <div style="max-width: 900px; margin: 0 auto; padding-bottom: 60px;">
+        <div style="background: #111216; border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 24px; padding: 35px; box-shadow: 0 40px 90px -15px rgba(0, 0, 0, 0.8);">
+            <h3 style="color: #ffffff; font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; display: flex; align-items: center; gap: 12px;">
+                <span style="color: #ffbd2e;">⏱️</span> Nejaktivnější uživatelé MineXcore
+            </h3>
+            
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); color: #718096; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        <th style="padding: 12px 8px;">Pozice</th>
+                        <th style="padding: 12px 8px;">Uživatel (Nick)</th>
+                        <th style="padding: 12px 8px; text-align: right;">Celkový Playtime</th>
+                    </tr>
+                </thead>
+                <tbody style="color: #e2e8f0; font-size: 0.95rem;">
+                    <!-- ZDE MŮŽEŠ KDYKOLIV RUČNĚ PŘEPSAT SKUTEČNÁ JMÉNA A ČASY SVÝCH HRÁČŮ -->
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.04); background: rgba(255, 189, 46, 0.03);">
+                        <td style="padding: 16px 8px; font-weight: 800; color: #ffbd2e;">🥇 1. místo</td>
+                        <td style="padding: 16px 8px; font-weight: 700;">Skrim27</td>
+                        <td style="padding: 16px 8px; text-align: right; font-weight: 700; color: #00e676;">120 hodin</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
+                        <td style="padding: 16px 8px; font-weight: 800; color: #a0aec0;">🥈 2. místo</td>
+                        <td style="padding: 16px 8px; font-weight: 600;">JULINKA64</td>
+                        <td style="padding: 16px 8px; text-align: right; color: #e2e8f0;">95 hodin</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
+                        <td style="padding: 16px 8px; font-weight: 800; color: #b87333;">🥉 3. místo</td>
+                        <td style="padding: 16px 8px; font-weight: 600;">peto123451</td>
+                        <td style="padding: 16px 8px; text-align: right; color: #cbd5e0;">64 hodin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- SKRIPT PRO PROPOJENÍ S VAŠÍM MENU ODKAZEM (Vlož na úplný konec před </body>) -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const zebricekLink = document.querySelector('a[href="#zebricek"]');
+    const targetSection = document.getElementById("zebricek");
+
+    if (zebricekLink && targetSection) {
+        zebricekLink.addEventListener("click", function (e) {
+            e.preventDefault(); 
+
+            if (targetSection.style.maxHeight === "0px" || targetSection.style.maxHeight === "0" || !targetSection.style.maxHeight) {
+                targetSection.style.paddingTop = "60px";
+                targetSection.style.maxHeight = "1200px"; 
+                targetSection.style.opacity = "1";
+
+                setTimeout(() => {
+                    targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 150);
+            } else {
+                targetSection.style.maxHeight = "0";
+                targetSection.style.opacity = "0";
+                targetSection.style.paddingTop = "0";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        });
+    }
+});
+</script>
+
             <!-- NEJMODERNĚJŠÍ STYLY PRO ANIMACE POHYBU A GLASSMORPHISM -->
             <style>
                 .main-toggle-btn {
