@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 VIP Výhody | MineXcore</title>
+    <style>
+        :root { --primary: #4CAF50; --bg-dark: #0a0a0a; --bg-card: rgba(18, 18, 22, 0.95); --text-muted: #b3b3b3; --border: #1f1f1f; }
+        body { 
+            margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(180deg, #0a200a 0%, #070708 40%, #070708 70%, #1a0a20 100%);
+            color: #ffffff; scroll-behavior: smooth; overflow-x: hidden; min-height: 100vh;
+        }
+        nav { background-color: #121212; padding: 20px 0; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        nav .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        nav .logo { font-weight: 900; font-size: 1.4em; letter-spacing: 2px; text-decoration: none; color: #fff; }
+        nav .menu a { color: var(--text-muted); text-decoration: none; margin-left: 25px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; }
+        nav .menu a:hover { color: var(--primary); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 20px; text-align: center; }
+        .sec-desc { color: #008080; text-transform: uppercase; font-size: 0.85em; letter-spacing: 2px; font-weight: bold; margin-bottom: 5px; }
+        .sec-title { font-size: 2.5em; text-transform: uppercase; margin-bottom: 40px; font-weight: 900; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 40px; }
+        .feature-card { background-color: var(--bg-card); border: 1px solid #1f1f1f; border-radius: 8px; padding: 35px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        details { background-color: #0a0a0a; border: 1px solid rgba(0, 128, 128, 0.3); border-radius: 6px; margin-bottom: 10px; }
+        summary { padding: 12px; font-weight: bold; cursor: pointer; user-select: none; color: #008080; font-size: 0.95em; }
+        summary:hover { color: var(--primary); }
+        .rules-content { padding: 15px; color: #cbd5e1; border-top: 1px solid #1f1f1f; font-size: 0.95em; line-height: 1.6; }
+        .btn { padding: 15px 30px; border-radius: 6px; font-weight: bold; text-transform: uppercase; font-size: 0.85em; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+        .btn-main { background-color: #008080; color: #fff; box-shadow: 0 4px 15px rgba(0, 128, 128, 0.4); }
+        .btn-main:hover { transform: translateY(-2px); }
+        footer { background-color: #050505; padding: 40px 20px; text-align: center; border-top: 1px solid #1f1f1f; color: #b3b3b3; font-size: 0.9em; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">💎 MINEXCORE</a>
+            <div class="menu">
+                <a href="index.html#domu">Zpět na hlavní web ↖</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="sec-desc">💎 OBCHOD SE SERVEROVÝMI HODNOSTMI</div>
+        <div class="sec-title">👑 Nabídka VIP Hodností</div>
+        <p style="color: var(--text-muted); max-width: 700px; margin: -20px auto 40px auto; font-size: 1.1em;">Vyber si hodnost, která ti nejvíce vyhovuje. Podpoříš tím vývoj a provoz serveru MineXcore! 🎮</p>
+
+        <!-- ZDE ZAČÍNÁ VAŠE PRVNÍ ZÁKLADNÍ VIP HODNOST -->
+        <div style="border: 2px solid #008080; border-radius: 12px; padding: 40px; background: var(--bg-card); box-shadow: 0 0 30px rgba(0, 128, 128, 0.1); max-width: 1000px; margin: 0 auto; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h2 style="margin: 0; font-size: 2.2em; color: #008080; text-transform: uppercase; letter-spacing: 1px;">⭐ Aktivní Hodnost: VIP</h2>
+                    <p style="margin: 5px 0 0 0; color: var(--text-muted);">Základní prémiový balíček plný skvělých příkazů</p>
+                </div>
+                <div style="background: #008080; color: #fff; padding: 12px 25px; font-weight: bold; font-size: 1.2em; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px;">
+                    Aktuálně: ZDARMA 🎉
+                </div>
+            </div>
+
+            <div class="features-grid" style="margin-top: 0; margin-bottom: 30px;">
+                <!-- KARTA 1 -->
+                <div class="feature-card" style="background: #070708; padding: 25px;">
+                    <h3 style="color: #008080; margin-top: 0;">💬 Chat & Speciální práva</h3>
+                    <details><summary>🎨 Výhody v chatu</summary><div class="rules-content">• Unikátní tmavě tyrkysový prefiks <b>[VIP]</b> v chatu i v tabulce.<br>• Možnost psát do herního chatu barevně a tučně.</div></details>
+                    <details><summary>🎩 Speciální práva</summary><div class="rules-content">• Příkaz <b>/hat</b> — nasaď si jakýkoliv blok z ruky přímo na hlavu.<br>• Přednostní připojení na server, i když je úplně plno.</div></details>
+                </div>
+                <!-- KARTA 2 -->
+                <div class="feature-card" style="background: #070708; padding: 25px;">
+                    <h3 style="color: #008080; margin-top: 0;">⚡ Exkluzivní Příkazy</h3>
+                    <details><summary>🦅 Létání a Opravy</summary><div class="rules-content">• Příkaz <b>/fly</b> — možnost létat po celém survival světě.<br>• Příkaz <b>/repair</b> — bezplatná oprava věcí v ruce jednou za 10 minut.</div></details>
+                    <details><summary>🎒 Přenosný inventář</summary><div class="rules-content">• Příkaz <b>/workbench</b> — pracovní stůl přístupný odkudkoliv.<br>• Příkaz <b>/enderchest</b> — otevře ender truhlu přímo přes chat.</div></details>
+                </div>
+                <!-- KARTA 3 -->
+                <div class="feature-card" style="background: #070708; padding: 25px;">
+                    <h3 style="color: #008080; margin-top: 0;">🏡 Rezidence & Domy</h3>
+                    <details><summary>🏰 Pozemky a Domovy</summary><div class="rules-content">• Možnost vytvořit si celkem až <b>8 samostatných rezidencí</b>.<br>• Výrazně <b>větší maximální velikost</b> pro každou rezidenci.<br>• Možnost nastavit si až <b>8 domovů (/sethome)</b> místo základních 3.</div></details>
+                    <details><summary>🔨 Tržiště a Aukce</summary><div class="rules-content">• Možnost vystavit v herních aukcích až 10 předmětů současně.<br>• Přístup k exkluzivním VIP výhodám na virtuálním trhu.</div></details>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="https://discord.gg" target="_blank" class="btn btn-main">🛒 Aktivovat VIP přes Discord</a>
+            </div>
+        </div>
+        <!-- V BUDOUCNU SEM POD TENTO DROBNÝ RÁMEČEK STAČÍ VLOŽIT STEJNÝ BLOK PRO VIP+ NEBO ELITE -->
+
+    </div>
+
+    <footer>
+        <div class="logo">MINEXCORE</div>
+        <p>&copy; 2026 MineXcore. Všechna práva vyhrazena.</p>
+    </footer>
+
+</body>
+</html>
